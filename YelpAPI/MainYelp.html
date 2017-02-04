@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="Yelp_1.js"></script>
+    <script src="Yelp_2.js"></script>
+    <meta name="Search API" content="Search API" />
+    <title>iTunes Search API</title>
+
+</head>
+    <body>
+
+
+            <div class="blackBorderOne greyBox" style="width:20%; padding:10px; float:right">
+              <form id="requestForm">
+              <div class="form-group">
+                <label for="formGroupExampleInput">Find</label>
+                <input type="text" class="form-control" id="termInput" placeholder="food ex: Restaurants, Pizza, etc.">
+              </div>
+              <div class="form-group">
+                <label for="formGroupExampleInput2">City</label>
+                <input type="text" class="form-control blackBorderSmall" id="nearInput" placeholder="city: ex. Milwaukee">
+              </div>
+              <div>
+
+              </div>
+              <button type="submit" class="btn yellowBox blackBorderSmall">Submit</button>
+            </form>
+          </div>
+
+    <br><br><br><br><br><br><br><br><br>
+
+      <h1><center> FOOD SEARCH </center></h1>
+
+      <br>
+
+    <div class="container" style"width:100%">
+      <form>
+        <table class="table">
+          <thead>
+            <tr style="margin-bottom:20px">
+              <th class="tableTitle">Add</th>
+              <th></th>
+              <th class="tableTitle">Rating</th>
+              <th class="tableTitle">Name</th>
+              <th class="tableTitle">Phone</th>
+              <th class="tableTitle">Cuisine</th>
+              <th class="tableTitle">Review</th>
+              <th class="tableTitle">Link</th>
+            </tr>
+          </thead>
+          <tbody id="resultsTable">
+          </tbody>
+        </table>
+        <button id="chooseButton" style="display: none" type="button" class="btn yellowBox blackBorderSmall">Add choices to dash</button>
+    </form>
+    </div>
+
+    <br><br><br><br><br><br><br>
+  </div>
+</div>
+    <div>
+        <footer style" bottom:0">
+
+        </footer>
+    </div>
+
+
+
+    <script src="YelpAPI.js"></script>
+
+</body>
+</html>
