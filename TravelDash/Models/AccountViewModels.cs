@@ -83,8 +83,8 @@ namespace TravelDash.Models
         [Required]
         [Display(Name = "First Name")]
         public string firstName { get; set; }
+
         [Required]
-        [EmailAddress]
         [Display(Name = "Last Name")]
         public string lastName { get; set; }
     }
