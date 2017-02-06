@@ -7,15 +7,17 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    Origin:
-    <input type="text" class="form-control" id="origin" name="origin">
-    Destination:
-    <input type="text" class="form-control" id="destination" name="destination">
-    Outbound Date:
-    <input type="text" class="form-control" id="outbound" name="outbound">
-    Inbound Date:
-    <input type="text" class="form-control" id="inbound" name="inbound">
-    <button onclick="hotelSearch()">Search for flights.</button>
+    City (Airport code):
+    <input type="text" class="form-control" id="city" name="city">
+    Check In Date:
+    <input type="text" class="form-control" id="checkIn" name="checkIn">
+    Check Out Date:
+    <input type="text" class="form-control" id="checkOut" name="checkOut">
+    Maximum distance from airport:
+    <input type="text" class="form-control" id="distance" name="distance">
+    Number of results:
+    <input type="text" class="form-control" id="numberResults" name="numberResults"">
+    <button onclick="hotelSearch()">Search for hotels.</button>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="travel-dash-hotels.js"></script>
     <div id="hotels-results">
