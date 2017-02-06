@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>devCodeCamp &middot; Travel Dash</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    Pickup Place:
+    <input type="text" class="form-control" id="pickup" name="pickup">
+    Drop Off Place:
+    <input type="text" class="form-control" id="dropoff" name="dropoff">
+    Pick up date and time:
+    <input type="text" class="form-control" id="pickupdatetime" name="pickupdatetime">
+    Drop off date and time:
+    <input type="text" class="form-control" id="dropoffdatetime" name="dropoffdatetime">
+    <button onclick="carSearch()">Search for cars.</button>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="travel-dash-cars.js"></script>
+    <div id="cars-results">
+    </div>
+
+
+
+
+  </body>
+</html>
