@@ -1,12 +1,13 @@
-﻿
+﻿@using Microsoft.AspNet.Identity
 @{
     ViewBag.Title = "Dashboard";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Hello @User.Identity.Name</h2>
+<h2>Hello @ViewBag.FirstName </h2>
 <h3>Welcome to your dashboard</h3>
 <br />
+
 
 <h4>You currently dont have any trips planned <br /><br /> Lets get one started!</h4>
 
