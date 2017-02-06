@@ -79,6 +79,14 @@ namespace TravelDash.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "First Name")]
+        public string firstName { get; set; }
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Last Name")]
+        public string lastName { get; set; }
     }
 
     public class ResetPasswordViewModel
