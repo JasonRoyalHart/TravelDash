@@ -18,27 +18,26 @@ namespace TravelDash.Models
 
         [Required]
         [Display(Name = "Day")]
-        public string DepartureDay { get; set; }
+        public int DepartureDay { get; set; }
 
         [Required]
         [Display(Name = "Month")]
-        public string DepartureMonth { get; set; }
+        public int DepartureMonth { get; set; }
 
         [Required]
         [Display(Name = "Year")]
-        public string DepartureYear { get; set; }
+        public int DepartureYear { get; set; }
 
         [Required]
         [Display(Name = "Day")]
-        public string ArrivalDay { get; set; }
+        public int ArrivalDay { get; set; }
 
         [Required]
         [Display(Name = "Month")]
-        public string ArrivalMonth { get; set; }
+        public int ArrivalMonth { get; set; }
 
         [Required]
         [Display(Name = "Year")]
-        public string ArrivalYear { get; set; }
-
+        public int ArrivalYear { get; set; }
     }
 }

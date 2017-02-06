@@ -10,7 +10,7 @@
 @using (Html.BeginForm("TripIndex", "Booking", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
+    <h4>Start a new trip!</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
@@ -67,5 +67,3 @@
         </div>
     </div>
 }
-
-<li>@Html.ActionLink("Back to dashboard", "Index", "Dashboard")</li>
