@@ -1,5 +1,4 @@
-﻿@using Microsoft.AspNet.Identity
-@{
+﻿@{
     ViewBag.Title = "Dashboard";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -8,10 +7,10 @@
 <h3>Welcome to your dashboard</h3>
 <br />
 
-
 <h4>You currently dont have any trips planned <br /><br /> Lets get one started!</h4>
 
 <li>@Html.ActionLink("Start a new trip", "TripIndex", "Booking")</li>
+
 
 <p>These options will only show once they have a trip planned yet</p>
 <li>@Html.ActionLink("Book a flight", "FlightsIndex", "Booking")</li>

@@ -5,7 +5,6 @@
 }
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -20,20 +19,13 @@
             <label for="formGroupExampleInput">Find</label>
             <input type="text" class="form-control" id="termInput" placeholder="food ex: Restaurants, Pizza, etc.">
         </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput2">City</label>
-            <input type="text" class="form-control blackBorderSmall" id="nearInput" placeholder="city: ex. Milwaukee">
-        </div>
-        <div>
-
-        </div>
         <button type="submit" class="btn yellowBox blackBorderSmall">Submit</button>
     </form>
 </div>
 
 <br><br><br><br><br><br><br><br><br>
 
-<h1><center> FOOD SEARCH </center></h1>
+<h1><center> FOOD SEARCH in @ViewBag.Location</center></h1>
 
 <br>
 
@@ -63,12 +55,13 @@
 <div>
     <footer style" bottom:0"></footer>
 </div>
-
+<script>
+    var destination = "@ViewBag.Location" ;
+</script>
 
 @Scripts.Render("~/Scripts/YelpAPI_One.js")
 @Scripts.Render("~/Scripts/YelpAPI_Two.js")
 @Scripts.Render("~/Scripts/YelpAPI_Three.js")
-
 
 
 <li>@Html.ActionLink("Back to dashboard", "Index", "Dashboard")</li>

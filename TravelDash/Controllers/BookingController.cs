@@ -32,11 +32,23 @@ namespace TravelDash.Controllers
                 var arrival = (model.ArrivalMonth.ToString() + model.ArrivalDay.ToString() + model.ArrivalYear.ToString());
                 var currentUserName = User.Identity.Name;
                 var currentUser = _context.Users.FirstOrDefault(m => m.UserName == currentUserName);
-                var trip = new TripModels { UserId= currentUser.Email, Home = model.Home, Destination = model.Destination,
-                StartDate = departure, EndDate = arrival};
+                var trip = new TripModels
+                {
+                    UserId = currentUser.Email,
+                    Home = model.Home,
+                    Destination = model.Destination,
+                    StartDate = departure,
+                    EndDate = arrival
+                };
+                _context.TripModels.Add(trip);
+                _context.SaveChanges();
                 return RedirectToAction("Index", "Dashboard");
+
             }
-            return View(model);
+            else
+            {
+                return View(model);
+            }
         }
         public ActionResult FlightsIndex()
         {
@@ -71,14 +83,19 @@ namespace TravelDash.Controllers
         //}
         public ActionResult RestaurantsIndex()
         {
+            var currentUserName = User.Identity.Name;
+            var currentUser = _context.Users.FirstOrDefault(m => m.UserName == currentUserName);
+            var currentLocation = _context.TripModels.FirstOrDefault(m => m.UserId == currentUser.Email);
+            ViewBag.Location = currentLocation.Destination;
+            return View(ViewBag);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult RestaurantsIndex(RestaurantsViewModel model)
+        {
             return View();
         }
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult RestaurantsIndex()
-        //{
-        //    return View();
-        //}
         public ActionResult EventsIndex()
         {
             return View();

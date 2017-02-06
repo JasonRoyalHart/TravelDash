@@ -80,3 +80,5 @@ C:\Users\Jack\Desktop\Projects\TravelSite\TravelDash\bin\Microsoft.Owin.Security
 C:\Users\Jack\Desktop\Projects\TravelSite\TravelDash\obj\Debug\TravelDash.csprojResolveAssemblyReference.cache
 C:\Users\Jack\Desktop\Projects\TravelSite\TravelDash\obj\Debug\TravelDash.dll
 C:\Users\Jack\Desktop\Projects\TravelSite\TravelDash\obj\Debug\TravelDash.pdb
+C:\Users\Jack\Desktop\Projects\TravelSite\TravelDash\obj\Debug\TravelDash.Migrations.initialCreate.resources
+C:\Users\Jack\Desktop\Projects\TravelSite\TravelDash\obj\Debug\TravelDash.csproj.GenerateResource.Cache
