@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Dashboard</h2>
+
+<li>@Html.ActionLink("Book a flight", "FlightsIndex", "Booking")</li>
+<li>@Html.ActionLink("Book a hotel", "HotelsIndex", "Booking")</li>
+<li>@Html.ActionLink("Book a car", "CarsIndex", "Booking")</li>
+<li>@Html.ActionLink("Check out restaurants", "RestaurantsIndex", "Booking")</li>
+<li>@Html.ActionLink("Check out some local events", "EventsIndex", "Booking")</li>
