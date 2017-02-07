@@ -1,4 +1,4 @@
-﻿
+﻿@model TravelDash.Models.RestaurantsViewModel
 @{
     ViewBag.Title = "RestaurantIndex";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -28,9 +28,10 @@
 <h1><center> FOOD SEARCH in @ViewBag.Location</center></h1>
 
 <br>
-
+@using (Html.BeginForm("RestaurantsIndex", "Booking", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{ 
 <div class="container" style"width:100%">
-    <form>
+    <form id="restaurantTable">
         <table class="table">
             <thead>
                 <tr style="margin-bottom:20px">
@@ -49,6 +50,7 @@
         <button id="chooseButton" style="display: none" type="button" class="btn yellowBox blackBorderSmall">Add choices to dash</button>
     </form>
 </div>
+}
 
 <br><br><br><br><br><br><br>
 
