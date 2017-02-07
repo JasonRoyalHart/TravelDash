@@ -207,11 +207,26 @@
     <Compile Include="Migrations\201702062147226_initialCreate.Designer.cs">
       <DependentUpon>201702062147226_initialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702072015175_planemodel.cs" />
+    <Compile Include="Migrations\201702072015175_planemodel.Designer.cs">
+      <DependentUpon>201702072015175_planemodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702072017257_carmodel.cs" />
+    <Compile Include="Migrations\201702072017257_carmodel.Designer.cs">
+      <DependentUpon>201702072017257_carmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702072019460_hotelmodel.cs" />
+    <Compile Include="Migrations\201702072019460_hotelmodel.Designer.cs">
+      <DependentUpon>201702072019460_hotelmodel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Car.cs" />
     <Compile Include="Models\DashboardViewModel.cs" />
+    <Compile Include="Models\Hotel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Plane.cs" />
     <Compile Include="Models\RestaurantsViewModel.cs" />
     <Compile Include="Models\TripModels.cs" />
     <Compile Include="Models\TripViewModel.cs" />
@@ -304,6 +319,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201702062147226_initialCreate.resx">
       <DependentUpon>201702062147226_initialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702072015175_planemodel.resx">
+      <DependentUpon>201702072015175_planemodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702072017257_carmodel.resx">
+      <DependentUpon>201702072017257_carmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702072019460_hotelmodel.resx">
+      <DependentUpon>201702072019460_hotelmodel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

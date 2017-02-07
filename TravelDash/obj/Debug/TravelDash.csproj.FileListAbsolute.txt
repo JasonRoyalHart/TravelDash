@@ -166,3 +166,6 @@ C:\Users\Jennifer Ruel\Documents\Chlorine\TravelDash\TravelDash\obj\Debug\Travel
 C:\Users\Jennifer Ruel\Documents\Chlorine\TravelDash\TravelDash\obj\Debug\TravelDash.csproj.GenerateResource.Cache
 C:\Users\Jennifer Ruel\Documents\Chlorine\TravelDash\TravelDash\obj\Debug\TravelDash.dll
 C:\Users\Jennifer Ruel\Documents\Chlorine\TravelDash\TravelDash\obj\Debug\TravelDash.pdb
+C:\Users\Jennifer Ruel\Documents\Chlorine\TravelDash\TravelDash\obj\Debug\TravelDash.Migrations.planemodel.resources
+C:\Users\Jennifer Ruel\Documents\Chlorine\TravelDash\TravelDash\obj\Debug\TravelDash.Migrations.carmodel.resources
+C:\Users\Jennifer Ruel\Documents\Chlorine\TravelDash\TravelDash\obj\Debug\TravelDash.Migrations.hotelmodel.resources
