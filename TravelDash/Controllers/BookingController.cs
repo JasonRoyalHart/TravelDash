@@ -94,7 +94,6 @@ namespace TravelDash.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult RestaurantsIndex(RestaurantsViewModel model)
         {
-            var selectedRestaurants = 
             return View();
         }
         public ActionResult EventsIndex()
