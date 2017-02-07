@@ -221,12 +221,12 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Car.cs" />
+    <Compile Include="Models\CarModel.cs" />
     <Compile Include="Models\DashboardViewModel.cs" />
-    <Compile Include="Models\Hotel.cs" />
+    <Compile Include="Models\HotelModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Plane.cs" />
+    <Compile Include="Models\PlaneModel.cs" />
     <Compile Include="Models\RestaurantsViewModel.cs" />
     <Compile Include="Models\TripModels.cs" />
     <Compile Include="Models\TripViewModel.cs" />

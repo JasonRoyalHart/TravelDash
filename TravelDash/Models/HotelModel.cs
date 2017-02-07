@@ -5,10 +5,10 @@ using System.Web;
 
 namespace TravelDash.Models
 {
-    public class Car
+    public class HotelModel
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        public int CarId { get; set; }
+        public int HotelId { get; set; }
     }
 }
