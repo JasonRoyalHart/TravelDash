@@ -226,11 +226,8 @@
     <Compile Include="Models\HotelModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-<<<<<<< HEAD
     <Compile Include="Models\RestaurantModels.cs" />
-=======
     <Compile Include="Models\PlaneModel.cs" />
->>>>>>> bd025bb04891cbc9ab8143f3ecb04c4222a532d1
     <Compile Include="Models\RestaurantsViewModel.cs" />
     <Compile Include="Models\TripModels.cs" />
     <Compile Include="Models\TripViewModel.cs" />
