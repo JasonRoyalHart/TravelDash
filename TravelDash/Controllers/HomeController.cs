@@ -15,7 +15,7 @@ namespace TravelDash.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Everything Travel Dash can do for you.";
 
             return View();
         }
