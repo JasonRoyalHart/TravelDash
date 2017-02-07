@@ -1,25 +1,54 @@
 $(function() {
     $("#search").on("click", function() {
       var searchTerm = $("#searchTerm").val();
-    var url = "http://api.openweathermap.org/data/2.5/weather?&units=imperial&APPID=aa6b1550989d2570caa91f5781d5c8b4&q="+ searchTerm;
+    var url = "http://api.openweathermap.org/data/2.5/forecast?us&units=imperial&APPID=aa6b1550989d2570caa91f5781d5c8b4&q="+ searchTerm;
     $.ajax({
       url: url,
       method: 'GET',
           dataType: "jsonp",
           success: function(response) {
             $("#output").html();
-              $("#output").prepend("<div><div class='well'><img src= " + " ' " + response.weather[0]["icon"] + " ' " + "><p>" + "Current weather forecast is: " + response.weather[0].description + "</p>" + "<p>" + "Current temperature is: " + response.main.temp + "</p>" + "<p>" + "Current wind speed is: " + response.wind.speed + "</p> </a></div></div>");       
+            parseDataInit(response);
           console.log(response);
           }
      })
-    .done(function() {
-      console.log("success");
-    })
-    .fail(function() {
-      console.log("error");
-    })
-    .always(function() {
-      console.log("complete");
-    })
     });
   });
+
+function parseDataInit(data){
+  parseCity( data["city"]["name"])
+  parseData(data["list"]["0"], "#output");
+  parseFuture(data["city"]["name"]);
+  var j = 1;
+  for (let i=1; i<6;i++){
+    j=(j+7);
+    $("#outputTwo").append("<br>");
+    parseData(data["list"][j], "#outputTwo");
+  }
+}
+
+function parseCity(city){
+  $("#output").prepend("<div><div class='well'><p><b>" +
+"Current Weather in " + city + "</b></p>");
+}
+function parseFuture(city){
+  $("#outputTwo").prepend("<div><div class='well'><p><b>" +
+"Future Forecast for " + city + "</b></p>");
+}
+function parseData(data, place){
+  $(place).append("<p>"+
+   "Overall conditions on "+ (parseDate(data["dt_txt"]))+ ": " + data.weather[0].description + "</p><p>" +
+    "Temperature: " + data.main.temp + "</p>");
+      if (place == "#output"){
+       $("#output").append(
+         "<p> Wind speed: " + data.wind.speed +
+          "</p><p> Cloud Cover: "+ data["clouds"]["all"]+"%</p>");
+        }
+
+}
+function parseDate(string){
+  dateArray = string.split("-");
+  dayArray = dateArray[2].split(" ");
+  cleanDate=dateArray[1]+"/"+dayArray[0]+"/"+dateArray[0];
+  return cleanDate;
+}

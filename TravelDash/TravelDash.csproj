@@ -207,12 +207,30 @@
     <Compile Include="Migrations\201702062147226_initialCreate.Designer.cs">
       <DependentUpon>201702062147226_initialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702072015175_planemodel.cs" />
+    <Compile Include="Migrations\201702072015175_planemodel.Designer.cs">
+      <DependentUpon>201702072015175_planemodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702072017257_carmodel.cs" />
+    <Compile Include="Migrations\201702072017257_carmodel.Designer.cs">
+      <DependentUpon>201702072017257_carmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702072019460_hotelmodel.cs" />
+    <Compile Include="Migrations\201702072019460_hotelmodel.Designer.cs">
+      <DependentUpon>201702072019460_hotelmodel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CarModel.cs" />
     <Compile Include="Models\DashboardViewModel.cs" />
+    <Compile Include="Models\HotelModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+<<<<<<< HEAD
     <Compile Include="Models\RestaurantModels.cs" />
+=======
+    <Compile Include="Models\PlaneModel.cs" />
+>>>>>>> bd025bb04891cbc9ab8143f3ecb04c4222a532d1
     <Compile Include="Models\RestaurantsViewModel.cs" />
     <Compile Include="Models\TripModels.cs" />
     <Compile Include="Models\TripViewModel.cs" />
@@ -245,6 +263,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Weather_API.js" />
     <Content Include="Scripts\YelpAPI_One.js" />
     <Content Include="Scripts\YelpAPI_Three.js" />
     <Content Include="Scripts\YelpAPI_Two.js" />
@@ -305,6 +324,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201702062147226_initialCreate.resx">
       <DependentUpon>201702062147226_initialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702072015175_planemodel.resx">
+      <DependentUpon>201702072015175_planemodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702072017257_carmodel.resx">
+      <DependentUpon>201702072017257_carmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702072019460_hotelmodel.resx">
+      <DependentUpon>201702072019460_hotelmodel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
