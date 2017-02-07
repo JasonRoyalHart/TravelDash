@@ -1,6 +1,18 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: Arial;   
+    background-image: url('travel.png'); 
+}
+.jumbotron {
+    background-image: url('clouds.png');
+    text-align: center;
+}
+.navbar {
+    background-color: darkblue;
+    font-family: Arial;
+    color: black;
+    text-align: center;
 }
 
 /* Set padding to keep content from hitting the edges */
