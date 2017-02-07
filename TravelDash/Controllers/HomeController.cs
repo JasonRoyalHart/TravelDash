@@ -22,7 +22,14 @@ namespace TravelDash.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Let us know how our app worked for you.";
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Contact(string message)
+        {
+            ViewBag.Message = "Thanks for reviewing our app.";
 
             return View();
         }
