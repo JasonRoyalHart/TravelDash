@@ -212,6 +212,7 @@
     <Compile Include="Models\DashboardViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\RestaurantModels.cs" />
     <Compile Include="Models\RestaurantsViewModel.cs" />
     <Compile Include="Models\TripModels.cs" />
     <Compile Include="Models\TripViewModel.cs" />

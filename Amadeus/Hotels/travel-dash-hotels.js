@@ -46,7 +46,7 @@ function displayError(data) {
 
 function displayData(data) {
 //  console.log("Success!");
-//  console.log(data);
+  console.log(data);
 //  var airlines = getAirlines(data.Carriers);
   var html = "<table><tr><td>Select</td><td>Hotel</td><td>Address</td><td>Price Per Night</td><td>Total Price</td></tr>";
   var results = data.results;

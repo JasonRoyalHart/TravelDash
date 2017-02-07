@@ -14,5 +14,7 @@ namespace TravelDash.Models
             _context = new ApplicationDbContext();
         }
         ApplicationUser ApplicationUser { get; set; }
+        RestaurantModels Restaurants { get; set; }
+
     }
 }
