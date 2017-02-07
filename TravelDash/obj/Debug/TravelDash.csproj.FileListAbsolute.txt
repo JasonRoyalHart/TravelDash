@@ -169,3 +169,6 @@ C:\Users\Jennifer Ruel\Documents\Chlorine\TravelDash\TravelDash\obj\Debug\Travel
 C:\Users\Jennifer Ruel\Documents\Chlorine\TravelDash\TravelDash\obj\Debug\TravelDash.Migrations.planemodel.resources
 C:\Users\Jennifer Ruel\Documents\Chlorine\TravelDash\TravelDash\obj\Debug\TravelDash.Migrations.carmodel.resources
 C:\Users\Jennifer Ruel\Documents\Chlorine\TravelDash\TravelDash\obj\Debug\TravelDash.Migrations.hotelmodel.resources
+C:\Users\Jack\Desktop\Projects\TravelSite\TravelDash\obj\Debug\TravelDash.Migrations.planemodel.resources
+C:\Users\Jack\Desktop\Projects\TravelSite\TravelDash\obj\Debug\TravelDash.Migrations.carmodel.resources
+C:\Users\Jack\Desktop\Projects\TravelSite\TravelDash\obj\Debug\TravelDash.Migrations.hotelmodel.resources
