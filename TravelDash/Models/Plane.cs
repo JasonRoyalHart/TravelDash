@@ -7,8 +7,8 @@ namespace TravelDash.Models
 {
     public class Plane
     {
-        public int ID { get; set; }
-        public int UserID { get; set; }
-        public int PlaneID { get; set; }
+        public int Id { get; set; }
+        public int UserId { get; set; }
+        public int PlaneId { get; set; }
     }
 }
