@@ -48,16 +48,20 @@ function displayData(data) {
 //  console.log("Success!");
 //  console.log(data);
 //  var airlines = getAirlines(data.Carriers);
-  var html = "<table><tr><td>Hotel</td><td>Address</td><td>Price Per Night</td><td>Total Price</td></tr>";
+  var html = "<table><tr><td>Select</td><td>Hotel</td><td>Address</td><td>Price Per Night</td><td>Total Price</td></tr>";
   var results = data.results;
+  html += "<form>";
   for (i in results) {
     result = results[i];
     html += "<tr>";
+    html += "<td><input type="+"'"+"radio"+"' "+"name="+"'"+"select"+"' "+"value="+"'"+"other"+"'"+
+    "></td>";
     html += "<td>" + result.property_name + "</td>";
     html += "<td>" + result.address.line1 + "</td>";
     html += "<td>" + result.min_daily_rate.amount + "</td>";
     html += "<td>" + result.total_price.amount + "</td>";
     html += "</tr>";
   }
+  html += "</form>";
   jQuery('#hotels-results').html(html);
 }

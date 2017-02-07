@@ -1,4 +1,4 @@
-//Skyscanner Search
+//Amadeus Search
 
 function carSearch() {
 //  var flightURL = "http://partners.api.skyscanner.net/apiservices/xd/autosuggest/v1.0/GB/GBP/en-GB?query=rome&apiKey=tr906266896253037258757243379113";
@@ -44,14 +44,17 @@ function displayError(data) {
 
 function displayData(data) {
   console.log(data);
-  var html = "<table><tr><td>Image</td><td>Provider</td><td></td><td>Type</td><td>Cost</td></tr>";
-  html += "<tr>";
+  var html = "<table><tr><td>Select</td><td>Image</td><td>Provider</td><td>Type</td><td>Cost</td></tr>";
   var results = data.results;
+  html += "<form>";
   for (i in results) {
     result = results[i];
     provider = result.provider.company_name;
     for (j in result.cars) {
       car = result.cars[j];
+      html += "<tr>";
+      html += "<td><input type="+"'"+"radio"+"' "+"name="+"'"+"select"+"' "+"value="+"'"+"other"+"'"+
+      "></td>";
       html += "<td><img src =" + car.images[0].url + "></td>";
       html += "<td>" + provider + "</td>";
       html += "<td>" + car.vehicle_info.type + "</td>";
@@ -59,6 +62,7 @@ function displayData(data) {
       html += "</tr>";
     }
   }
+  html += "</form>";
   jQuery('#cars-results').html(html);
 }
 
