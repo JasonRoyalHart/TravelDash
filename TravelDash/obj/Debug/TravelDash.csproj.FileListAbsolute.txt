@@ -80,6 +80,7 @@ C:\Users\Jack\Desktop\Projects\TravelSite\TravelDash\bin\Microsoft.Owin.Security
 C:\Users\Jack\Desktop\Projects\TravelSite\TravelDash\obj\Debug\TravelDash.csprojResolveAssemblyReference.cache
 C:\Users\Jack\Desktop\Projects\TravelSite\TravelDash\obj\Debug\TravelDash.dll
 C:\Users\Jack\Desktop\Projects\TravelSite\TravelDash\obj\Debug\TravelDash.pdb
+<<<<<<< HEAD
 C:\Users\Jennifer Ruel\Documents\Chlorine\TravelDash\TravelDash\bin\ApplicationInsights.config
 C:\Users\Jennifer Ruel\Documents\Chlorine\TravelDash\TravelDash\bin\roslyn\csc.exe
 C:\Users\Jennifer Ruel\Documents\Chlorine\TravelDash\TravelDash\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -162,3 +163,7 @@ C:\Users\Jennifer Ruel\Documents\Chlorine\TravelDash\TravelDash\bin\Microsoft.Ow
 C:\Users\Jennifer Ruel\Documents\Chlorine\TravelDash\TravelDash\obj\Debug\TravelDash.csprojResolveAssemblyReference.cache
 C:\Users\Jennifer Ruel\Documents\Chlorine\TravelDash\TravelDash\obj\Debug\TravelDash.dll
 C:\Users\Jennifer Ruel\Documents\Chlorine\TravelDash\TravelDash\obj\Debug\TravelDash.pdb
+=======
+C:\Users\Jack\Desktop\Projects\TravelSite\TravelDash\obj\Debug\TravelDash.Migrations.initialCreate.resources
+C:\Users\Jack\Desktop\Projects\TravelSite\TravelDash\obj\Debug\TravelDash.csproj.GenerateResource.Cache
+>>>>>>> 6cfbd918eb570296217c2ce383ddef2c574971ae

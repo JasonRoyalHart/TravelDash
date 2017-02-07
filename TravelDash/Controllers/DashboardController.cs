@@ -19,7 +19,7 @@ namespace TravelDash.Controllers
         {
             var currentUserName = User.Identity.Name;
             var currentUser = _context.Users.FirstOrDefault(m => m.UserName == currentUserName);
-            ViewBag.Dashboard = currentUser.firstName;
+            ViewBag.FirstName = currentUser.firstName;
 
         return View(ViewBag);
         }

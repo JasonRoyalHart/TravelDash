@@ -18,7 +18,7 @@ var auth = {
 $('form').submit(function (event) {
     event.preventDefault();
     var terms = $("#termInput").val();
-    var near = $("#nearInput").val();
+    var near = destination;
 
 
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>devCodeCamp &middot; Travel Dash</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    City (Airport code):
+    <input type="text" class="form-control" id="city" name="city">
+    Check In Date:
+    <input type="text" class="form-control" id="checkIn" name="checkIn">
+    Check Out Date:
+    <input type="text" class="form-control" id="checkOut" name="checkOut">
+    Maximum distance from airport:
+    <input type="text" class="form-control" id="distance" name="distance">
+    Number of results:
+    <input type="text" class="form-control" id="numberResults" name="numberResults"">
+    <button onclick="hotelSearch()">Search for hotels.</button>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="travel-dash-hotels.js"></script>
+    <div id="hotels-results">
+    </div>
+
+
+
+
+  </body>
+</html>
