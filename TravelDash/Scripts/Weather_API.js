@@ -4,7 +4,7 @@ var url = "http://api.openweathermap.org/data/2.5/forecast?us&units=imperial&APP
 $.ajax({
     url: url,
     method: 'GET',
-    dataType: "jsonp",
+    dataType: "json",
     success: function (response) {
         $("#output").html();
         parseDataInit(response);
