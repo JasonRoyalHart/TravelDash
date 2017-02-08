@@ -229,6 +229,10 @@
     <Compile Include="Migrations\201702072019460_hotelmodel.Designer.cs">
       <DependentUpon>201702072019460_hotelmodel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702081437584_TempRestaurants.cs" />
+    <Compile Include="Migrations\201702081437584_TempRestaurants.Designer.cs">
+      <DependentUpon>201702081437584_TempRestaurants.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CarModel.cs" />
@@ -239,6 +243,7 @@
     <Compile Include="Models\RestaurantModels.cs" />
     <Compile Include="Models\PlaneModel.cs" />
     <Compile Include="Models\RestaurantsViewModel.cs" />
+    <Compile Include="Models\TempRestaurants.cs" />
     <Compile Include="Models\TripModels.cs" />
     <Compile Include="Models\TripViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -341,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702072019460_hotelmodel.resx">
       <DependentUpon>201702072019460_hotelmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702081437584_TempRestaurants.resx">
+      <DependentUpon>201702081437584_TempRestaurants.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

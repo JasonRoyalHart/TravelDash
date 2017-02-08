@@ -20,6 +20,7 @@ namespace TravelDash.Controllers
         {
             _context = new ApplicationDbContext();
         }
+        List<object> Restaurants = new List<object>();
         // GET: Restaurant
         public ActionResult RestaurantsIndex()
         {
@@ -39,8 +40,16 @@ namespace TravelDash.Controllers
         public ActionResult RestaurantSearch()
         {
             JObject results = Search("food", "chicago");
-            //I dont know how to deal with a jobject yet
+          
+            for (int i = 0; i < 20; i++)
+            {
+                var restaurant = new TempRestaurants()
+                {
 
+                }
+                object item = results["businesses"][i];
+                Restaurants.Add(item);
+            }
             return RedirectToAction("RestaurantsIndex", "Restaurant");
         }
         private const string CONSUMER_KEY = "-H424RZyK5jKczrI6U7TSg";
@@ -82,8 +91,6 @@ namespace TravelDash.Controllers
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             var stream = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
-            string responses = stream.ReadToEnd();
-            //'responses' here can be read as a json object. not sure what a jobject is...
             return JObject.Parse(stream.ReadToEnd());
         }
         public JObject Search(string term, string location)
