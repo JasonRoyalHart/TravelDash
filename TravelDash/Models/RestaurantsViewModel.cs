@@ -13,8 +13,9 @@ namespace TravelDash.Models
         {
             _context = new ApplicationDbContext();
         }
-        ApplicationUser ApplicationUser { get; set; }
-        RestaurantModels Restaurants { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
+        public RestaurantModels Restaurants { get; set; }
+        public IEnumerable<TempRestaurants> TempRestaurants { get; set; }
 
     }
 }

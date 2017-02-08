@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using SimpleOAuth;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using TravelDash.Models;
@@ -19,7 +22,12 @@ namespace TravelDash.Controllers
         }
         public ActionResult HotelsIndex()
         {
-            return View();
+            var currentUserName = User.Identity.Name;
+            var currentUser = _context.Users.FirstOrDefault(m => m.UserName == currentUserName);
+            var currentLocation = _context.TripModels.FirstOrDefault(m => m.UserId == currentUser.Email);
+            ViewBag.Location = currentLocation.Destination;
+            ViewBag.User = currentUser.Email;
+            return View(ViewBag);
         }
         //[HttpPost]
         //[ValidateAntiForgeryToken]
@@ -29,6 +37,8 @@ namespace TravelDash.Controllers
         //}
         public ActionResult HotelSearchResult()
         {
+            var currentUserName = User.Identity.Name;
+            var currentUser = _context.Users.FirstOrDefault(m => m.UserName == currentUserName);
             string City = Request["txtCity"];
             string CheckIn = Request["txtCheckIn"];
             string CheckOut = Request["txtCheckOut"];
@@ -48,8 +58,27 @@ namespace TravelDash.Controllers
             // Open the stream using a StreamReader for easy access.
             StreamReader reader = new StreamReader(dataStream);
             // Read the content.
-            string responseFromServer = reader.ReadToEnd();
+            JObject responseFromServer = JObject.Parse(reader.ReadToEnd());
+            var hotel = new TempHotels()
+            {
+                UserId = currentUser.Email,
+                property_name = responseFromServer["results"][0]["property_name"].ToString(),
+                property_code = "Test",
+                //              property_code = responseFromServer["results"][0]["property_code"].ToString(),
+                address = responseFromServer["results"][0]["address"]["line1"].ToString(),
+                total_price = responseFromServer["results"][0]["total_price"]["amount"].ToString()
+            };
+            List<TempHotels> hotels = _context.TempHotels.ToList();
+
+
+            _context.TempHotels.RemoveRange(_context.TempHotels);
+
+            _context.SaveChanges();
+            _context.TempHotels.Add(hotel);
+            _context.SaveChanges();
+
             return RedirectToAction("HotelsIndex", "Hotel");
+
         }
     }
 
