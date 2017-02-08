@@ -29,6 +29,7 @@ namespace TravelDash.Controllers
             var currentUser = _context.Users.FirstOrDefault(m => m.UserName == currentUserName);
             var currentLocation = _context.TripModels.FirstOrDefault(m => m.UserId == currentUser.Email);
             ViewBag.Location = currentLocation.Destination;
+            ViewBag.User = currentUser.Email;
             return View(ViewBag);
         }
 

@@ -1,4 +1,4 @@
-﻿
+﻿@model TravelDash.Models.RestaurantsViewModel
 @{
     ViewBag.Title = "RestaurantIndex";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -29,6 +29,23 @@
         }
     </fieldset>
 
+
+@foreach (var item in Model.TempRestaurants)
+{
+    if (item.UserId == ViewBag.User)
+    {
+        var injection = "<tr><td><form> <input type=" + "'" + "radio" + "' " + "name=" + "'" + "select" + "' " + "value=" + "'" + "other" + "'" +
+        "></form></td><td><img src=" + item.ImageUrl +
+        "></td><td><img src=" + item.RatingUrl +
+        "><td><b>" + item.Name +
+        "</b></td><td>" + item.Phone +
+        "</td><td>" + item.Category +
+        "</td><td>" + item.Review +
+        "</td><td><a href=" + item.Link +
+        ">" + "More info" + "</a></td>" +
+        "</tr>";
+    }
+}
 
 <br><br><br><br><br><br><br><br><br>
 
