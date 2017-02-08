@@ -253,6 +253,14 @@
     <Compile Include="Migrations\201702081549488_eventModel.Designer.cs">
       <DependentUpon>201702081549488_eventModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702081854545_updatedTempRestaurants.cs" />
+    <Compile Include="Migrations\201702081854545_updatedTempRestaurants.Designer.cs">
+      <DependentUpon>201702081854545_updatedTempRestaurants.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702081857143_readdedChangesToRestaurants.cs" />
+    <Compile Include="Migrations\201702081857143_readdedChangesToRestaurants.Designer.cs">
+      <DependentUpon>201702081857143_readdedChangesToRestaurants.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CarModel.cs" />
@@ -389,6 +397,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702081549488_eventModel.resx">
       <DependentUpon>201702081549488_eventModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702081854545_updatedTempRestaurants.resx">
+      <DependentUpon>201702081854545_updatedTempRestaurants.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702081857143_readdedChangesToRestaurants.resx">
+      <DependentUpon>201702081857143_readdedChangesToRestaurants.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

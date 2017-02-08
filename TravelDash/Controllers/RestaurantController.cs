@@ -48,8 +48,16 @@ namespace TravelDash.Controllers
                 var restaurant = new TempRestaurants()
                 {
                     UserId = currentUser.Email,
-                    Restaurant = results["businesses"][i]
+                    Phone = results["businesses"][i]["display_phone"].ToString(),
+                    Name = results["businesses"][i]["name"].ToString(),
+                    Category = results["businesses"][i]["categories"][0][0].ToString(),
+                    ImageUrl = results["businesses"][i]["image_url"].ToString(),
+                    RatingUrl = results["businesses"][i]["rating_img_url_small"].ToString(),
+                    Review = results["businesses"][i]["snippet_text"].ToString(),
+                    Link = results["businesses"][i]["url"].ToString()
                 };
+                _context.TempRestaurants.Add(restaurant);
+                _context.SaveChanges();
             }
             return RedirectToAction("RestaurantsIndex", "Restaurant");
         }
