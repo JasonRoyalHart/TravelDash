@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "RestaurantIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<h2>RestaurantIndex</h2>
+
+
+
+
+    <fieldset>
+        <legend>Travel Dash Hotel Search</legend>
+        @using (Ajax.BeginForm("RestaurantSearch", "Restaurant", new AjaxOptions { UpdateTargetId = "divRestaurantSearchDetails" }))
+        {
+            <div id="divHotelSearchDetails"></div>
+            <ol>
+                <li>
+                    @Html.Label("Find:")
+                    @Html.TextBox("termsInput")
+                </li>
+            </ol>
+            <button>Filter</button>
+        }
+    </fieldset>
+
+
+<br><br><br><br><br><br><br><br><br>
+
+<h1><center> FOOD SEARCH in @ViewBag.Location</center></h1>
+
+<br>
+@*@using (Html.BeginForm("RestaurantsIndex", "Booking", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{ 
+<div class="container" style"width:100%">
+    <form id="restaurantTable">
+        <table class="table">
+            <thead>
+                <tr style="margin-bottom:20px">
+                    <th class="tableTitle">Add</th>
+                    <th></th>
+                    <th class="tableTitle">Rating</th>
+                    <th class="tableTitle">Name</th>
+                    <th class="tableTitle">Phone</th>
+                    <th class="tableTitle">Cuisine</th>
+                    <th class="tableTitle">Review</th>
+                    <th class="tableTitle">Link</th>
+                </tr>
+            </thead>
+            <tbody id="resultsTable"></tbody>
+        </table>
+        <button id="chooseButton" style="display: none" type="button" class="btn yellowBox blackBorderSmall">Add choices to dash</button>
+    </form>
+</div>
+}*@
+
+@*<br><br><br><br><br><br><br>
+
+<div>
+    <footer style" bottom:0"></footer>
+</div>
+<script>
+    var destination = "@ViewBag.Location" ;
+</script>
+
+@Scripts.Render("~/Scripts/YelpAPI_One.js")
+@Scripts.Render("~/Scripts/YelpAPI_Two.js")
+@Scripts.Render("~/Scripts/YelpAPI_Three.js")*@
+
+
+<li>@Html.ActionLink("Back to dashboard", "Index", "Dashboard")</li>

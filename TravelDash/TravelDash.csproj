@@ -202,9 +202,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
+    <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\FlightController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RestaurantController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -305,15 +310,16 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
-    <Content Include="Views\Booking\FlightsIndex.cshtml" />
-    <Content Include="Views\Booking\CarsIndex.cshtml" />
-    <Content Include="Views\Booking\HotelsIndex.cshtml" />
-    <Content Include="Views\Booking\RestaurantsIndex.cshtml" />
-    <Content Include="Views\Booking\EventsIndex.cshtml" />
+    <Content Include="Views\Flight\FlightsIndex.cshtml" />
+    <Content Include="Views\Car\CarsIndex.cshtml" />
+    <Content Include="Views\Hotel\HotelsIndex.cshtml" />
+    <Content Include="Views\Restaurant\RestaurantsIndex.cshtml" />
+    <Content Include="Views\Event\EventsIndex.cshtml" />
     <Content Include="Views\Booking\TripIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\App_LocalResources\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
