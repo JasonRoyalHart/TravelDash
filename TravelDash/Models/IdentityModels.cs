@@ -22,6 +22,17 @@ namespace TravelDash.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<TripModels> TripModels { get; set; }
+        public DbSet<CarModel> CarModel { get; set; }
+        public DbSet<EventModel> EventModel { get; set;}
+        public DbSet<HotelModel> HotelModel { get; set; }
+        public DbSet<PlaneModel> PlaneModel { get ; set; }
+        public DbSet<RestaurantModels> RestaurantModels { get; set; }
+        public DbSet<TempCars> TempCars { get; set; }
+        public DbSet<TempEvents> TempEvents { get; set; }
+        public DbSet<TempHotels> TempHotels { get; set; }
+        public DbSet<TempPlanes> TempPlanes { get; set; }
+        public DbSet<TempRestaurants> TempRestaurants { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
