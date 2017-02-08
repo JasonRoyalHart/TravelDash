@@ -16,6 +16,7 @@ namespace TravelDash.Controllers
     {
         private ApplicationDbContext _context;
 
+
         public RestaurantController()
         {
             _context = new ApplicationDbContext();
