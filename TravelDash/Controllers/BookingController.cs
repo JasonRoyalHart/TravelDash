@@ -105,11 +105,8 @@ namespace TravelDash.Controllers
         public ActionResult RestaurantSearch()
         {
             JObject results = Search("food", "chicago");
-            foreach (JProperty property in results.Properties())
-                {
-                    Console.WriteLine(property.Name + " - " + property.Value);
-                }
-            //pause it here and check out that jacked up return object//
+            //I dont know how to deal with a jobject yet
+
             return RedirectToAction("RestaurantsIndex", "Booking");
         }
         public ActionResult EventsIndex()
@@ -190,10 +187,10 @@ namespace TravelDash.Controllers
             ).WithEncryption(EncryptionMethod.HMACSHA1).InHeader();
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
             var stream = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
-            var clean = JObject.Parse(stream.ReadToEnd());
-            return clean;
+            string responses = stream.ReadToEnd();
+            //'responses' here can be read as a json object. not sure what a jobject is...
+            return JObject.Parse(stream.ReadToEnd());
         }
         public JObject Search(string term, string location)
         {
