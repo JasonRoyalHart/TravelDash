@@ -40,15 +40,15 @@ namespace TravelDash.Controllers
         public ActionResult RestaurantSearch()
         {
             JObject results = Search("food", "chicago");
-          
+            var currentUserName = User.Identity.Name;
+            var currentUser = _context.Users.FirstOrDefault(m => m.UserName == currentUserName);
             for (int i = 0; i < 20; i++)
             {
                 var restaurant = new TempRestaurants()
                 {
-
-                }
-                object item = results["businesses"][i];
-                Restaurants.Add(item);
+                    UserId = currentUser.Email,
+                    Restaurant = results["businesses"][i]
+                };
             }
             return RedirectToAction("RestaurantsIndex", "Restaurant");
         }
