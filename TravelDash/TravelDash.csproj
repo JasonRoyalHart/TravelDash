@@ -233,16 +233,41 @@
     <Compile Include="Migrations\201702081437584_TempRestaurants.Designer.cs">
       <DependentUpon>201702081437584_TempRestaurants.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702081539470_tempCarsModel.cs" />
+    <Compile Include="Migrations\201702081539470_tempCarsModel.Designer.cs">
+      <DependentUpon>201702081539470_tempCarsModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702081541593_tempPlaneModel.cs" />
+    <Compile Include="Migrations\201702081541593_tempPlaneModel.Designer.cs">
+      <DependentUpon>201702081541593_tempPlaneModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702081544449_tempHotelsModel.cs" />
+    <Compile Include="Migrations\201702081544449_tempHotelsModel.Designer.cs">
+      <DependentUpon>201702081544449_tempHotelsModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702081547063_tempEventsModel.cs" />
+    <Compile Include="Migrations\201702081547063_tempEventsModel.Designer.cs">
+      <DependentUpon>201702081547063_tempEventsModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702081549488_eventModel.cs" />
+    <Compile Include="Migrations\201702081549488_eventModel.Designer.cs">
+      <DependentUpon>201702081549488_eventModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CarModel.cs" />
     <Compile Include="Models\DashboardViewModel.cs" />
+    <Compile Include="Models\EventModel.cs" />
     <Compile Include="Models\HotelModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\RestaurantModels.cs" />
     <Compile Include="Models\PlaneModel.cs" />
     <Compile Include="Models\RestaurantsViewModel.cs" />
+    <Compile Include="Models\TempCars.cs" />
+    <Compile Include="Models\TempEvents.cs" />
+    <Compile Include="Models\TempHotels.cs" />
+    <Compile Include="Models\TempPlanes.cs" />
     <Compile Include="Models\TempRestaurants.cs" />
     <Compile Include="Models\TripModels.cs" />
     <Compile Include="Models\TripViewModel.cs" />
@@ -349,6 +374,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702081437584_TempRestaurants.resx">
       <DependentUpon>201702081437584_TempRestaurants.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702081539470_tempCarsModel.resx">
+      <DependentUpon>201702081539470_tempCarsModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702081541593_tempPlaneModel.resx">
+      <DependentUpon>201702081541593_tempPlaneModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702081544449_tempHotelsModel.resx">
+      <DependentUpon>201702081544449_tempHotelsModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702081547063_tempEventsModel.resx">
+      <DependentUpon>201702081547063_tempEventsModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702081549488_eventModel.resx">
+      <DependentUpon>201702081549488_eventModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
