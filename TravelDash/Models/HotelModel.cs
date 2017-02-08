@@ -7,8 +7,11 @@ namespace TravelDash.Models
 {
     public class HotelModel
     {
-        public int Id { get; set; }
+        public string property_code { get; set; }
         public int UserId { get; set; }
-        public int HotelId { get; set; }
+        public string property_name { get; set; }
+        public string address { get; set; }
+        public string total_price { get; set; }
     }
 }
+
