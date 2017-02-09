@@ -11,6 +11,9 @@ namespace TravelDash.Models
         [Key]
         public int ID { get; set; }
         public string UserId { get; set; }
-        public object Plane { get; set; }
+        public string InboundAirline { get; set; }
+        public string InboundDeparture { get; set; }
+        public string OutboundAirline { get; set; }
+        public string OutboundDeparture { get; set; }
     }
 }
