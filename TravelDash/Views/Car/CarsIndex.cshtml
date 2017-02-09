@@ -1,4 +1,4 @@
-﻿
+﻿@model TravelDash.Models.CarsViewModel
 @{
     ViewBag.Title = "CarsIndex";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,3 +7,38 @@
 <h2>CarsIndex</h2>
 
 <li>@Html.ActionLink("Back to dashboard", "Index", "Dashboard")</li>
+
+@using (Html.BeginForm("CarSearchResult", "Car", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Enter Car Details</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.Pickup  , new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Pickup, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.PickUpDtae, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.PickUpDtae, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DropOffDate, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.DropOffDate, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Find Hotels!" />
+        </div>
+    </div>
+}
+
+
+
+<p>This where the table loads with the results just like hotels did</p>

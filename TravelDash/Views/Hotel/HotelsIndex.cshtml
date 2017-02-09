@@ -10,36 +10,7 @@
 
 <li>@Html.ActionLink("Back to dashboard", "Index", "Dashboard")</li>
 
-<fieldset>
-    <legend>Travel Dash Hotel Search</legend>
-    @using (Ajax.BeginForm("HotelSearchResult", "Hotel", new AjaxOptions { UpdateTargetId = "divHotelSearchDetails" }))
-    {
-        <div id="divHotelSearchDetails"></div>
-        <ol>
-            <li>
-                @Html.Label("City (Airport Code)")
-                @Html.TextBox("txtCity")
-            </li>
-            <li>
-                @Html.Label("Check In Date")
-                @Html.TextBox("txtCheckIn")
-            </li>
-            <li>
-                @Html.Label("Check Out Date")
-                @Html.TextBox("txtCheckOut")
-            </li>
-            <li>
-                @Html.Label("Maximum Distance From Airport")
-                @Html.TextBox("txtDistance")
-            </li>
-            <li>
-                @Html.Label("Number Of Results")
-                @Html.TextBox("txtResults")
-            </li>
-        </ol>
-        <button>Find Hotels</button>
-    }
-</fieldset>
+
 
 @using (Html.BeginForm("HotelSearchResult", "Hotel", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
