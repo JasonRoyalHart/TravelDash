@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Flights</h2>
+<h2>Flights Search</h2>
 
 @using (Html.BeginForm("PlaneSearchResult", "Flight", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
@@ -48,7 +48,7 @@
         </div>
     </div>
 }
-<h1>Flights Table</h1>
+<h1 style="text-align:center">Flights Search Results</h1>
 @using (Html.BeginForm("FightsIndex", "Fights", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     <div class="container" style"width:100%">
@@ -68,7 +68,7 @@
                 {
                     <tbody>
                         <tr>
-                            <td></td>
+                            <td><input name="@("checkBox"+(i.ToString()))" value="true" type="checkbox" /></td>
                             <td></td>
                             <td>@Model.TempPlanes.ElementAt(i).InboundAirline"></td>
                             <td>@Model.TempPlanes.ElementAt(i).InboundDeparture</td>
@@ -78,9 +78,9 @@
                     </tbody>
                 }
             </table>
-            <button id="chooseButton" style="display: none" type="button" class="btn">Add choices to dash</button>
+            <button  type="submit" class="btn">Add choices to dash</button>
         </form>
     </div>
 }
-
+<br /><br />
 <li>@Html.ActionLink("Back to dashboard", "Index", "Dashboard")</li>

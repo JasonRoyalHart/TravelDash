@@ -9,17 +9,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-<h2>RestaurantIndex</h2>
-
-
-
-
-
+<h2>Restaurant Search</h2>
 
 
 <br><br><br><br><br><br><br><br><br>
 
-<h1><center> FOOD SEARCH in @ViewBag.Location</center></h1>
+<h1 style="text-align:center">Restaurant Search in @ViewBag.Location</h1>
 
 <br>
 @using (Html.BeginForm("RestaurantsIndex", "Booking", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -42,7 +37,7 @@
             @for (var i = 0; i < Model.TempRestaurants.Count(); i++)
             {
                 <tbody>
-            <tr><td></td>
+            <tr><td><input name="@("checkBox"+(i.ToString()))" value="true" type="checkbox" /></td>
                 <td><img src="@Model.TempRestaurants.ElementAt(i).ImageUrl"></td>
                 <td><img src="@Model.TempRestaurants.ElementAt(i).RatingUrl"></td>
                 <td>@Model.TempRestaurants.ElementAt(i).Name</td>
@@ -52,12 +47,11 @@
                 <td><a href="@Model.TempRestaurants.ElementAt(i).Link">MoreInfo/Book</a></td></tr>
                 </tbody>
             }
-            <tbody>@Model.TempRestaurants.ElementAt(0).Name</tbody>
         </table>
-        <button id="chooseButton" style="display: none" type="button" class="btn yellowBox blackBorderSmall">Add choices to dash</button>
+        <button type="submit" class="btn yellowBox blackBorderSmall">Add choices to dash</button>
     </form>
 </div>
 }
-
+<br /><br />
 
 <li>@Html.ActionLink("Back to dashboard", "Index", "Dashboard")</li>

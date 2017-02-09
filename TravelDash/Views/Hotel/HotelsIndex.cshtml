@@ -6,10 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>HotelsIndex</h2>
-
-<li>@Html.ActionLink("Back to dashboard", "Index", "Dashboard")</li>
-
+<h2>Hotels Search</h2>
 
 
 @using (Html.BeginForm("HotelSearchResult", "Hotel", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -58,7 +55,7 @@
 
 
 
-<h2>HOTELS TABLE</h2>
+<h2 style="text-align:center">Hotel Search Results</h2>
 @using (Html.BeginForm("HotelsIndex", "Booking", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
 <div class="container" style"width:100%">
@@ -77,6 +74,7 @@
             {
                 <tbody>
                     <tr>
+                        <td><input name="@("checkBox"+(i.ToString()))" value="true" type="checkbox" /></td>
                         <td></td>
                         <td>@Model.TempHotels.ElementAt(i).property_name</td>
                         <td>@Model.TempHotels.ElementAt(i).address</td>
@@ -85,7 +83,9 @@
                 </tbody>
             }
         </table>
-        <button id="chooseButton" style="display: none" type="button" class="btn yellowBox blackBorderSmall">Add choices to dash</button>
+        <button  type="submit" class="btn yellowBox blackBorderSmall">Add choices to dash</button>
     </form>
 </div>
 }
+<br /><br />
+<li>@Html.ActionLink("Back to dashboard", "Index", "Dashboard")</li>
