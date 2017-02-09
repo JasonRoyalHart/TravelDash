@@ -51,7 +51,6 @@ namespace TravelDash.Controllers
             URL += "&check_out=" + CheckOut;
             URL += "&radius=" + Distance;
             URL += "&number_of_results=" + Results;
-            Console.WriteLine(URL);
             WebRequest request = WebRequest.Create(URL);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             Stream dataStream = response.GetResponseStream();
@@ -59,25 +58,25 @@ namespace TravelDash.Controllers
             StreamReader reader = new StreamReader(dataStream);
             // Read the content.
             JObject responseFromServer = JObject.Parse(reader.ReadToEnd());
-            var hotel = new TempHotels()
-            {
-                UserId = currentUser.Email,
-                property_name = responseFromServer["results"][0]["property_name"].ToString(),
-                property_code = "Test",
-                //              property_code = responseFromServer["results"][0]["property_code"].ToString(),
-                address = responseFromServer["results"][0]["address"]["line1"].ToString(),
-                total_price = responseFromServer["results"][0]["total_price"]["amount"].ToString()
-            };
-            List<TempHotels> hotels = _context.TempHotels.ToList();
-
-
             _context.TempHotels.RemoveRange(_context.TempHotels);
-
             _context.SaveChanges();
-            _context.TempHotels.Add(hotel);
-            _context.SaveChanges();
-
-            return RedirectToAction("HotelsIndex", "Hotel");
+            for (int i = 0; i < Int32.Parse(Results); i++)
+            {
+                var hotel = new TempHotels()
+                {
+                    UserId = currentUser.Email,
+                    property_name = responseFromServer["results"][i]["property_name"].ToString(),
+                    property_code = responseFromServer["results"][i]["property_code"].ToString(),
+                    //              property_code = responseFromServer["results"][0]["property_code"].ToString(),
+                    address = responseFromServer["results"][i]["address"]["line1"].ToString(),
+                    total_price = responseFromServer["results"][i]["total_price"]["amount"].ToString()
+                };
+                _context.TempHotels.Add(hotel);
+                _context.SaveChanges();
+            }
+            List<TempHotels> hotels = _context.TempHotels.ToList();
+//            return RedirectToAction("HotelsIndex", "Hotel");
+            return Content(Int32.Parse(Results).ToString());
 
         }
     }
