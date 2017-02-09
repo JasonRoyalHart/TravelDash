@@ -14,46 +14,18 @@
 
 
 
-    <fieldset>
-        <legend>Travel Dash Hotel Search</legend>
-        @using (Ajax.BeginForm("RestaurantSearch", "Restaurant", new AjaxOptions { UpdateTargetId = "divRestaurantSearchDetails" }))
-        {
-            <div id="divHotelSearchDetails"></div>
-            <ol>
-                <li>
-                    @Html.Label("Find:")
-                    @Html.TextBox("termsInput")
-                </li>
-            </ol>
-            <button>Filter</button>
-        }
-    </fieldset>
+@*@Html.Action("RestaurantSearch","Restaurant")*@
 
 
-@foreach (var item in Model.TempRestaurants)
-{
-    if (item.UserId == ViewBag.User)
-    {
-        var injection = "<tr><td><form> <input type=" + "'" + "radio" + "' " + "name=" + "'" + "select" + "' " + "value=" + "'" + "other" + "'" +
-        "></form></td><td><img src=" + item.ImageUrl +
-        "></td><td><img src=" + item.RatingUrl +
-        "><td><b>" + item.Name +
-        "</b></td><td>" + item.Phone +
-        "</td><td>" + item.Category +
-        "</td><td>" + item.Review +
-        "</td><td><a href=" + item.Link +
-        ">" + "More info" + "</a></td>" +
-        "</tr>";
-    }
-}
+
 
 <br><br><br><br><br><br><br><br><br>
 
 <h1><center> FOOD SEARCH in @ViewBag.Location</center></h1>
 
 <br>
-@*@using (Html.BeginForm("RestaurantsIndex", "Booking", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{ 
+@using (Html.BeginForm("RestaurantsIndex", "Booking", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
 <div class="container" style"width:100%">
     <form id="restaurantTable">
         <table class="table">
@@ -69,12 +41,25 @@
                     <th class="tableTitle">Link</th>
                 </tr>
             </thead>
-            <tbody id="resultsTable"></tbody>
+            @for (var i = 0; i < Model.TempRestaurants.Count(); i++)
+            {
+                <tbody>
+            <tr><td></td>
+                <td><img src="@Model.TempRestaurants.ElementAt(i).ImageUrl"></td>
+                <td><img src="@Model.TempRestaurants.ElementAt(i).RatingUrl"></td>
+                <td>@Model.TempRestaurants.ElementAt(i).Name</td>
+                <td>@Model.TempRestaurants.ElementAt(i).Phone</td>
+                <td>@Model.TempRestaurants.ElementAt(i).Category</td>
+                <td>@Model.TempRestaurants.ElementAt(i).Review</td>
+                <td><a href="@Model.TempRestaurants.ElementAt(i).Link">MoreInfo/Book</a></td></tr>
+                </tbody>
+            }
+            <tbody>@Model.TempRestaurants.ElementAt(0).Name</tbody>
         </table>
         <button id="chooseButton" style="display: none" type="button" class="btn yellowBox blackBorderSmall">Add choices to dash</button>
     </form>
 </div>
-}*@
+}
 
 @*<br><br><br><br><br><br><br>
 
