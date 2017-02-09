@@ -21,8 +21,6 @@ namespace TravelDash.Controllers
         // GET: Flight
         public ActionResult FlightsIndex()
         {
-            _context.TempPlanes.RemoveRange(_context.TempPlanes);
-            _context.SaveChanges();
             var currentUserName = User.Identity.Name;
             var currentUser = _context.Users.FirstOrDefault(m => m.UserName == currentUserName);
             var currentLocation = _context.TripModels.FirstOrDefault(m => m.UserId == currentUser.Email);
@@ -66,7 +64,8 @@ namespace TravelDash.Controllers
             StreamReader reader = new StreamReader(dataStream);
             // Read the content.
             JObject responseFromServer = JObject.Parse(reader.ReadToEnd());
-
+            _context.TempPlanes.RemoveRange(_context.TempPlanes);
+            _context.SaveChanges();
             for (int i = 0; i < responseFromServer["results"].Count(); i++)
             {
                 var plane = new TempPlanes()

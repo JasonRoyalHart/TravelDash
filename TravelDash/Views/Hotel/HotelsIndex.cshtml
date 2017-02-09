@@ -58,7 +58,7 @@
 
 
 
-
+<h2>HOTELS TABLE</h2>
 @using (Html.BeginForm("HotelsIndex", "Booking", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
 <div class="container" style"width:100%">
@@ -84,7 +84,6 @@
                     </tr>
                 </tbody>
             }
-            <tbody>@Model.TempHotels.ElementAt(0).property_name</tbody>
         </table>
         <button id="chooseButton" style="display: none" type="button" class="btn yellowBox blackBorderSmall">Add choices to dash</button>
     </form>
