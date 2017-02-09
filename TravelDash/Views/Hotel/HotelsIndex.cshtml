@@ -1,4 +1,6 @@
 ﻿
+@model TravelDash.Models.HotelViewModel
+
 @{
     ViewBag.Title = "HotelsIndex";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -38,3 +40,34 @@
         <button>Find Hotels</button>
     }
 </fieldset>
+@using (Html.BeginForm("HotelsIndex", "Booking", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+<div class="container" style"width:100%">
+    <form id="hotelTable">
+        <table class="table">
+            <thead>
+                <tr style="margin-bottom:20px">
+                    <th class="tableTitle">Add</th>
+                    <th></th>
+                    <th class="tableTitle">Name</th>
+                    <th class="tableTitle">Address</th>
+                    <th class="tableTitle">Total Price</th>
+                </tr>
+            </thead>
+            @for (var i = 0; i < Model.TempHotels.Count(); i++)
+            {
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td>@Model.TempHotels.ElementAt(i).property_name</td>
+                        <td>@Model.TempHotels.ElementAt(i).address</td>
+                        <td>@Model.TempHotels.ElementAt(i).total_price</td>
+                    </tr>
+                </tbody>
+            }
+            <tbody>@Model.TempHotels.ElementAt(0).property_name</tbody>
+        </table>
+        <button id="chooseButton" style="display: none" type="button" class="btn yellowBox blackBorderSmall">Add choices to dash</button>
+    </form>
+</div>
+}

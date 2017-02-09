@@ -271,6 +271,7 @@
     <Compile Include="Models\DashboardViewModel.cs" />
     <Compile Include="Models\EventModel.cs" />
     <Compile Include="Models\HotelModel.cs" />
+    <Compile Include="Models\HotelViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\RestaurantModels.cs" />

@@ -27,14 +27,19 @@ namespace TravelDash.Controllers
             var currentLocation = _context.TripModels.FirstOrDefault(m => m.UserId == currentUser.Email);
             ViewBag.Location = currentLocation.Destination;
             ViewBag.User = currentUser.Email;
-            return View(ViewBag);
+            var restList = _context.TempHotels;
+            var viewModel = new HotelViewModel()
+            {
+                TempHotels = restList
+            };
+            return View(viewModel);
         }
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult HotelsIndex()
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult HotelsIndex(HotelViewModel Model)
+        {
+            return View();
+        }
         public ActionResult HotelSearchResult()
         {
             var currentUserName = User.Identity.Name;
