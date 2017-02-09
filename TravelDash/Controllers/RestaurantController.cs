@@ -30,6 +30,7 @@ namespace TravelDash.Controllers
             var currentLocation = _context.TripModels.FirstOrDefault(m => m.UserId == currentUser.Email);
             ViewBag.Location = currentLocation.Destination;
             ViewBag.User = currentUser.Email;
+            RestaurantSearch();
             var restList = _context.TempRestaurants;
             var viewModel = new RestaurantsViewModel()
             {
@@ -44,28 +45,31 @@ namespace TravelDash.Controllers
         {
             return View();
         }
-        public ActionResult RestaurantSearch()
+        public void RestaurantSearch()
         {
             JObject results = Search("food", "chicago");
             var currentUserName = User.Identity.Name;
             var currentUser = _context.Users.FirstOrDefault(m => m.UserName == currentUserName);
             for (int i = 0; i < 20; i++)
             {
-                var restaurant = new TempRestaurants()
+                try
                 {
-                    UserId = currentUser.Email,
-                    Phone = results["businesses"][i]["display_phone"].ToString(),
-                    Name = results["businesses"][i]["name"].ToString(),
-                    Category = results["businesses"][i]["categories"][0][0].ToString(),
-                    ImageUrl = results["businesses"][i]["image_url"].ToString(),
-                    RatingUrl = results["businesses"][i]["rating_img_url_small"].ToString(),
-                    Review = results["businesses"][i]["snippet_text"].ToString(),
-                    Link = results["businesses"][i]["url"].ToString()
-                };
-                _context.TempRestaurants.Add(restaurant);
-                _context.SaveChanges();
+                    var restaurant = new TempRestaurants()
+                    {
+                        UserId = currentUser.Email,
+                        Phone = results["businesses"][i]["display_phone"].ToString(),
+                        Name = results["businesses"][i]["name"].ToString(),
+                        Category = results["businesses"][i]["categories"][0][0].ToString(),
+                        ImageUrl = results["businesses"][i]["image_url"].ToString(),
+                        RatingUrl = results["businesses"][i]["rating_img_url_small"].ToString(),
+                        Review = results["businesses"][i]["snippet_text"].ToString(),
+                        Link = results["businesses"][i]["url"].ToString()
+                    };
+                    _context.TempRestaurants.Add(restaurant);
+                    _context.SaveChanges();
+                }
+                catch { }
             }
-            return RedirectToAction("RestaurantsIndex", "Restaurant");
         }
         private const string CONSUMER_KEY = "-H424RZyK5jKczrI6U7TSg";
         private const string CONSUMER_SECRET = "Hr9xu-dzpsfEvYK0x6zJa6jMhJ4";

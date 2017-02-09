@@ -40,15 +40,15 @@ namespace TravelDash.Controllers
         {
             return View();
         }
-        public ActionResult HotelSearchResult()
+        public ActionResult HotelSearchResult(HotelViewModel model)
         {
             var currentUserName = User.Identity.Name;
             var currentUser = _context.Users.FirstOrDefault(m => m.UserName == currentUserName);
-            string City = Request["txtCity"];
-            string CheckIn = Request["txtCheckIn"];
-            string CheckOut = Request["txtCheckOut"];
-            string Distance = Request["txtDistance"];
-            string Results = Request["txtResults"];
+            string City = model.City;
+            string CheckIn = model.CheckIn;
+            string CheckOut = model.CheckOut;
+            string Distance = model.Distance;
+            string Results = model.ResultNumber;
             string api = "bG7HZQsZILLmjpOhLihxd9K4CMGGJsWG";
             string URL = "https://api.sandbox.amadeus.com/v1.2/hotels/search-airport?apikey=" + api;
             URL += "&location=" + City;
@@ -79,11 +79,7 @@ namespace TravelDash.Controllers
                 _context.TempHotels.Add(hotel);
                 _context.SaveChanges();
             }
-            List<TempHotels> hotels = _context.TempHotels.ToList();
-//            return RedirectToAction("HotelsIndex", "Hotel");
-            return Content(Int32.Parse(Results).ToString());
-
+            return RedirectToAction("HotelsIndex", "Hotel");
         }
     }
-
 }

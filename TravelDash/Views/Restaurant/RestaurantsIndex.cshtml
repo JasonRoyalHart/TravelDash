@@ -14,8 +14,6 @@
 
 
 
-@*@Html.Action("RestaurantSearch","Restaurant")*@
-
 
 
 
@@ -60,19 +58,6 @@
     </form>
 </div>
 }
-
-@*<br><br><br><br><br><br><br>
-
-<div>
-    <footer style" bottom:0"></footer>
-</div>
-<script>
-    var destination = "@ViewBag.Location" ;
-</script>
-
-@Scripts.Render("~/Scripts/YelpAPI_One.js")
-@Scripts.Render("~/Scripts/YelpAPI_Two.js")
-@Scripts.Render("~/Scripts/YelpAPI_Three.js")*@
 
 
 <li>@Html.ActionLink("Back to dashboard", "Index", "Dashboard")</li>
