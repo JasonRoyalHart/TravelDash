@@ -30,7 +30,14 @@ namespace TravelDash.Controllers
             var currentLocation = _context.TripModels.FirstOrDefault(m => m.UserId == currentUser.Email);
             ViewBag.Location = currentLocation.Destination;
             ViewBag.User = currentUser.Email;
-            return View(ViewBag);
+            var restList = _context.TempRestaurants.ToList();
+            var viewModel = new RestaurantsViewModel()
+            {
+                TempRestaurants = restList
+            };
+
+
+            return View(viewModel);
         }
 
         [HttpPost]
