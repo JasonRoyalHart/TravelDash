@@ -21,6 +21,8 @@ namespace TravelDash.Controllers
         // GET: Car
         public ActionResult Index()
         {
+            _context.TempCars.RemoveRange(_context.TempCars);
+            _context.SaveChanges();
             var currentUserName = User.Identity.Name;
             var currentUser = _context.Users.FirstOrDefault(m => m.UserName == currentUserName);
             var currentLocation = _context.TripModels.FirstOrDefault(m => m.UserId == currentUser.Email);

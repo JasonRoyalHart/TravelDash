@@ -22,6 +22,8 @@ namespace TravelDash.Controllers
         }
         public ActionResult HotelsIndex()
         {
+            _context.TempHotels.RemoveRange(_context.TempHotels);
+            _context.SaveChanges();
             var currentUserName = User.Identity.Name;
             var currentUser = _context.Users.FirstOrDefault(m => m.UserName == currentUserName);
             var currentLocation = _context.TripModels.FirstOrDefault(m => m.UserId == currentUser.Email);
@@ -63,8 +65,7 @@ namespace TravelDash.Controllers
             StreamReader reader = new StreamReader(dataStream);
             // Read the content.
             JObject responseFromServer = JObject.Parse(reader.ReadToEnd());
-            _context.TempHotels.RemoveRange(_context.TempHotels);
-            _context.SaveChanges();
+
             for (int i = 0; i < Int32.Parse(Results); i++)
             {
                 var hotel = new TempHotels()
