@@ -296,6 +296,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrapcer.css" />
     <Content Include="Content\clouds.png" />
     <Content Include="Content\travel.png" />
     <Content Include="Content\water4.png" />
