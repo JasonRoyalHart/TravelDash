@@ -60,7 +60,7 @@ namespace TravelDash.Controllers
             JObject responseFromServer = JObject.Parse(reader.ReadToEnd());
             _context.TempCars.RemoveRange(_context.TempCars);
             _context.SaveChanges();
-            for (int i = 0; i < responseFromServer["results"].Count() ; i++)
+            for (int i = 0; i < responseFromServer["results"].Count(); i++)
             {
                 var car = new TempCars()
                 {
