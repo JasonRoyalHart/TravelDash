@@ -58,25 +58,20 @@ namespace TravelDash.Controllers
             StreamReader reader = new StreamReader(dataStream);
             // Read the content.
             JObject responseFromServer = JObject.Parse(reader.ReadToEnd());
-            _context.TempHotels.RemoveRange(_context.TempHotels);
-            _context.SaveChanges();
 
-            // This next bit needs to be changed to store the values we want to pull from results and display per object
-
-            //for (int i = 0; i < Int32.Parse(Results); i++)
-            //{
-            //    var hotel = new TempHotels()
-            //    {
-            //        UserId = currentUser.Email,
-            //        property_name = responseFromServer["results"][i]["property_name"].ToString(),
-            //        property_code = responseFromServer["results"][i]["property_code"].ToString(),
-            //        //              property_code = responseFromServer["results"][0]["property_code"].ToString(),
-            //        address = responseFromServer["results"][i]["address"]["line1"].ToString(),
-            //        total_price = responseFromServer["results"][i]["total_price"]["amount"].ToString()
-            //    };
-            //    _context.TempHotels.Add(hotel);
-            //    _context.SaveChanges();
-            //}
+            for (int i = 0; i < responseFromServer["results"].Count() ; i++)
+            {
+                var car = new TempCars()
+                {
+                    UserId = currentUser.Email,
+                    Provider = responseFromServer["results"][0]["cars"][i]["provider"]["company_name"].ToString(),
+                    ImageUrl = responseFromServer["results"][0]["cars"][i]["images"]["0"]["url"].ToString(),
+                    Info = responseFromServer["results"][0]["cars"][i]["vehicle_info"]["type"].ToString(),
+                    Price = responseFromServer["results"][0]["cars"][i]["rates"][0]["price"]["amount"].ToString(),
+                };
+                _context.TempCars.Add(car);
+                _context.SaveChanges();
+            }
 
             return RedirectToAction("CarsIndex", "Car");
         }

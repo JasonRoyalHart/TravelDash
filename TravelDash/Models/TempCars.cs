@@ -11,6 +11,9 @@ namespace TravelDash.Models
         [Key]
         public int ID { get; set; }
         public string UserId { get; set; }
-        public object Car { get; set; }
+        public string Provider { get; set; }
+        public string ImageUrl { get; set; }
+        public string Info { get; set; }
+        public string Price { get; set; }
     }
 }
