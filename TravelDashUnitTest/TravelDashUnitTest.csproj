@@ -91,6 +91,7 @@
     <Compile Include="EventControllerTest.cs" />
     <Compile Include="FlightControllerTest.cs" />
     <Compile Include="RestaurantControllerTest.cs" />
+    <Compile Include="ManageControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
