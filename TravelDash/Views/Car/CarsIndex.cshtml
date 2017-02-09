@@ -42,7 +42,7 @@
 <h1 style="text-align:center">Cars Search Results Table</h1>
 
 
-@using (Html.BeginForm("FightsIndex", "Fights", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("CarsIndex", "Car", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     <div class="container" style"width:100%">
         <form id="restaurantTable">
@@ -53,7 +53,7 @@
                         <th class="tableTitle"></th>
                         <th class="tableTitle">Provider</th>
                         <th class="tableTitle">Info</th>
-                        <th class="tableTitle">Rate (per week)</th>
+                        <th class="tableTitle">Total Cost</th>
                     </tr>
                 </thead>
                 @for (var i = 0; i < Model.TempCars.Count(); i++)
@@ -61,7 +61,6 @@
                     <tbody>
                         <tr>
                             <td><input name="@("checkBox"+(i.ToString()))" value="true" type="checkbox" /></td>
-                            <td></td>
                             <td><img src="@Model.TempCars.ElementAt(i).ImageUrl"></td>
                             <td>@Model.TempCars.ElementAt(i).Provider</td>
                             <td>@Model.TempCars.ElementAt(i).Info</td>

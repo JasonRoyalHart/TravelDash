@@ -6,8 +6,8 @@
 <script src="https://bootswatch.com/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-<h2>Hello @ViewBag.FirstName </h2>
-<h3>Welcome to your dashboard</h3>
+<h1><b style="color:black">Hello @ViewBag.FirstName </b></h1>
+<h2><b style="color:black">Welcome to your dashboard</b></h2>
 <br />
 
  @if (ViewBag.Status == false)
@@ -18,16 +18,17 @@
  }
  else
  {
-<p>Get Strated Planning for your trip!</p>
-<li>@Html.ActionLink("Book a flight", "FlightsIndex", "Flight")</li>
-<li>@Html.ActionLink("Book a hotel", "HotelsIndex", "Hotel")</li>
-<li>@Html.ActionLink("Book a car", "CarsIndex", "Car")</li>
-<li>@Html.ActionLink("Check out restaurants", "RestaurantsIndex", "Restaurant")</li>
-<li>@Html.ActionLink("Check out some local events", "EventsIndex", "Event")</li>
- }
+    <h3> Get Started Planning for your trip!</h3>
+   <li> @Html.ActionLink("Book a flight", "FlightsIndex", "Flight") </li>
+   <li> @Html.ActionLink("Book a hotel", "HotelsIndex", "Hotel") </li>
+   <li> @Html.ActionLink("Book a car", "CarsIndex", "Car") </li>
+   <li> @Html.ActionLink("Check out restaurants", "RestaurantsIndex", "Restaurant") </li>
+   <li> @Html.ActionLink("Check out some local events", "EventsIndex", "Event") </li>
 
-<div id="output"></div>
-<div id="outputTwo"></div>
+<div style="max-width:30%; float:right">
+    <div id="output"></div>
+    <div id="outputTwo"></div>
+</div>
 <script>
     var banana = "@ViewBag.Location"
 </script>
@@ -35,121 +36,126 @@
 
 
 
-<h3>Here's a summary of your trip so far:</h3>
+<h3><b>Here's a summary of your trip so far:</b></h3>
 
-
-<h2>Booked Flights</h2>
-<table class="table">
-    <thead>
-        <tr style="margin-bottom:20px">
-            <th class="tableTitle">Inbound Airline</th>
-            <th class="tableTitle">Inbound Departure Info</th>
-            <th class="tableTitle">Outbound Airline</th>
-            <th class="tableTitle">Outbound Departure Info</th>
-        </tr>
-    </thead>
-    <tbody>
-        @for (var i = 0; i < Model.PlaneModel.Count(); i++)
-        {
-            if (Model.PlaneModel.ElementAt(i).UserId == Model.UserId)
+<div style="max-width:70%; float:left">
+    <h3>Chosen Flights</h3>
+    <table class="table">
+        <thead>
+            <tr style="margin-bottom:20px">
+                <th class="tableTitle">Inbound Airline</th>
+                <th class="tableTitle">Inbound Departure Info</th>
+                <th class="tableTitle">Outbound Airline</th>
+                <th class="tableTitle">Outbound Departure Info</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < Model.PlaneModel.Count(); i++)
             {
-            <tr>
-                <td>@Model.PlaneModel.ElementAt(i).InboundAirline"></td>
-                <td>@Model.PlaneModel.ElementAt(i).InboundDeparture</td>
-                <td>@Model.PlaneModel.ElementAt(i).OutboundAirline</td>
-                <td>@Model.PlaneModel.ElementAt(i).OutboundDeparture</td>
-            </tr>
+                if (Model.PlaneModel.ElementAt(i).UserId == Model.UserId)
+                {
+                    <tr>
+                        <td>@Model.PlaneModel.ElementAt(i).InboundAirline</td>
+                        <td>@Model.PlaneModel.ElementAt(i).InboundDeparture</td>
+                        <td>@Model.PlaneModel.ElementAt(i).OutboundAirline</td>
+                        <td>@Model.PlaneModel.ElementAt(i).OutboundDeparture</td>
+                    </tr>
+                }
             }
-         }
-    </tbody>
+        </tbody>
 
-</table>
+    </table>
 
-<br /><br />
-<h2>Booked Cars</h2>
-<table class="table">
-    <thead>
-        <tr style="margin-bottom:20px">
-            <th class="tableTitle">Provider</th>
-            <th class="tableTitle">Info</th>
-            <th class="tableTitle">Rate (per week)</th>
-        </tr>
-    </thead>
-<tbody>
-    @for (var i = 0; i < Model.CarModel.Count(); i++)
-    {
-        if (Model.CarModel.ElementAt(i).UserId == Model.UserId)
-        {
-
-            <tr>
-
-                <td><img src="@Model.CarModel.ElementAt(i).ImageUrl"></td>
-                <td>@Model.CarModel.ElementAt(i).Provider</td>
-                <td>@Model.CarModel.ElementAt(i).Info</td>
-                <td>@Model.CarModel.ElementAt(i).Price</td>
+    <br /><br />
+    <h3>Chosen Cars</h3>
+    <table class="table">
+        <thead>
+            <tr style="margin-bottom:20px">
+                <th class="tableTitle">Provider</th>
+                <th class="tableTitle">Info</th>
+                <th class="tableTitle">Rate (per week)</th>
             </tr>
-        }
-    }
-    </tbody>
-</table>
-
-<table class="table">
-    <thead>
-        <tr style="margin-bottom:20px">
-            <th class="tableTitle">Add</th>
-            <th></th>
-            <th class="tableTitle">Name</th>
-            <th class="tableTitle">Address</th>
-            <th class="tableTitle">Total Price</th>
-        </tr>
-    </thead>
-<tbody>
-    @for (var i = 0; i < Model.HotelModel.Count(); i++)
-    {
-        if (Model.HotelModel.ElementAt(i).UserId == Model.UserId)
-        {
-            <tr>
-                <td><input name="@("checkBox" + (i.ToString()))" value="true" type="checkbox" /></td>
-                <td></td>
-                <td>@Model.HotelModel.ElementAt(i).property_name</td>
-                <td>@Model.HotelModel.ElementAt(i).address</td>
-                <td>@Model.HotelModel.ElementAt(i).total_price</td>
-            </tr>
-        }
-    }
-</tbody>
-</table>
-
-<br /><br />
-<h2>Chosen Restaurants</h2>
-
-<table class="table">
-    <thead>
-        <tr style="margin-bottom:20px">
-            <th></th>
-            <th class="tableTitle">Rating</th>
-            <th class="tableTitle">Name</th>
-            <th class="tableTitle">Phone</th>
-            <th class="tableTitle">Cuisine</th>
-            <th class="tableTitle">Review</th>
-            <th class="tableTitle">Link</th>
-        </tr>
-    </thead>
-    <tbody>
-        @for (var i = 0; i < Model.RestaurantModels.Count(); i++)
-        {
-            if (Model.RestaurantModels.ElementAt(i).UserId == Model.UserId)
+        </thead>
+        <tbody>
+            @for (var i = 0; i < Model.CarModel.Count(); i++)
             {
-                <tr>
-                    <td><img src="@Model.RestaurantModels.ElementAt(i).ImageUrl"></td>
-                    <td><img src="@Model.RestaurantModels.ElementAt(i).RatingUrl"></td>
-                    <td>@Model.RestaurantModels.ElementAt(i).Name</td>
-                    <td>@Model.RestaurantModels.ElementAt(i).Phone</td>
-                    <td>@Model.RestaurantModels.ElementAt(i).Category</td>
-                    <td>@Model.RestaurantModels.ElementAt(i).Review</td>
-                    <td><a href="@Model.RestaurantModels.ElementAt(i).Link">MoreInfo/Book</a></td>
-                </tr>
+                if (Model.CarModel.ElementAt(i).UserId == Model.UserId)
+                {
+
+                    <tr>
+
+                        <td><img src="@Model.CarModel.ElementAt(i).ImageUrl"></td>
+                        <td>@Model.CarModel.ElementAt(i).Provider</td>
+                        <td>@Model.CarModel.ElementAt(i).Info</td>
+                        <td>@Model.CarModel.ElementAt(i).Price</td>
+                    </tr>
+                }
             }
-        }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+
+
+    <br /><br />
+    <h3>Chosen Hotels</h3>
+
+
+    <table class="table">
+        <thead>
+            <tr style="margin-bottom:20px">
+                <th></th>
+                <th class="tableTitle">Name</th>
+                <th class="tableTitle">Address</th>
+                <th class="tableTitle">Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < Model.HotelModel.Count(); i++)
+            {
+                if (Model.HotelModel.ElementAt(i).UserId == Model.UserId)
+                {
+                    <tr>
+                        <td></td>
+                        <td>@Model.HotelModel.ElementAt(i).property_name</td>
+                        <td>@Model.HotelModel.ElementAt(i).address</td>
+                        <td>@Model.HotelModel.ElementAt(i).total_price</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    <br /><br />
+    <h3>Chosen Restaurants</h3>
+
+    <table class="table">
+        <thead>
+            <tr style="margin-bottom:20px">
+                <th></th>
+                <th class="tableTitle">Rating</th>
+                <th class="tableTitle">Name</th>
+                <th class="tableTitle">Phone</th>
+                <th class="tableTitle">Cuisine</th>
+                <th class="tableTitle">Review</th>
+                <th class="tableTitle">Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < Model.RestaurantModels.Count(); i++)
+            {
+                if (Model.RestaurantModels.ElementAt(i).UserId == Model.UserId)
+                {
+                    <tr>
+                        <td><img src="@Model.RestaurantModels.ElementAt(i).ImageUrl"></td>
+                        <td><img src="@Model.RestaurantModels.ElementAt(i).RatingUrl"></td>
+                        <td>@Model.RestaurantModels.ElementAt(i).Name</td>
+                        <td>@Model.RestaurantModels.ElementAt(i).Phone</td>
+                        <td>@Model.RestaurantModels.ElementAt(i).Category</td>
+                        <td>@Model.RestaurantModels.ElementAt(i).Review</td>
+                        <td><a href="@Model.RestaurantModels.ElementAt(i).Link">MoreInfo/Book</a></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+ }

@@ -22,8 +22,7 @@ function parseData(data) {
     }
 }
 function formatRow(object) {
-    cleanedObject = "<tr><td><form> <input type=" + "'" + "radio" + "' " + "name=" + "'" + "select" + "' " + "value=" + "'" + "other" + "'" +
-    "></form></td><td><img src=" + object["image"]["medium"]["url"] +
+    cleanedObject = "<tr><td><img src=" + object["image"]["medium"]["url"] +
     "><td><b>" + object.title +
     "</b></td><td>" + object["start_time"] +
     "</td><td>" + object["venue_name"] +

@@ -42,6 +42,5 @@ namespace TravelDashUnitTest
             //Assert
             Assert.IsNotNull(result);
         }
-        [TestMethod]
     }
 }

@@ -10,7 +10,7 @@
 @using (Html.BeginForm("TripIndex", "Booking", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Start a new trip!</h4>
+    <h3>Start a new trip!</h3>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
@@ -25,6 +25,8 @@
             @Html.TextBoxFor(m => m.Destination, new { @class = "form-control" })
         </div>
     </div>
+    <br />
+    <h4>Departure Dates</h4>
     <div class="form-group">
         @Html.LabelFor(m => m.DepartureDay, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
@@ -43,6 +45,8 @@
             @Html.TextBoxFor(m => m.DepartureYear, new { @class = "form-control" })
         </div>
     </div>
+    <br />
+    <h4>Return Dates</h4>
     <div class="form-group">
         @Html.LabelFor(m => m.ArrivalDay, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">

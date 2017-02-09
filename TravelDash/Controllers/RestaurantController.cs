@@ -25,8 +25,6 @@ namespace TravelDash.Controllers
         // GET: Restaurant
         public ActionResult RestaurantsIndex()
         {
-            _context.TempRestaurants.RemoveRange(_context.TempRestaurants);
-            _context.SaveChanges();
             var currentUserName = User.Identity.Name;
             var currentUser = _context.Users.FirstOrDefault(m => m.UserName == currentUserName);
             var currentLocation = _context.TripModels.FirstOrDefault(m => m.UserId == currentUser.Email);
@@ -44,25 +42,34 @@ namespace TravelDash.Controllers
         [HttpPost]
         public ActionResult RestaurantsIndex(RestaurantsViewModel Model, FormCollection collection)
         {
+            List<int> Ids = new List<int>();
+            foreach (var item in _context.TempRestaurants)
+            {
+                Ids.Add(item.ID);
+            }
             for (int i = 0; i < 100; i++)
             {
                 var tempBox = "checkBox" + i.ToString();
                 if (!string.IsNullOrEmpty(collection[tempBox]))
                 {
-                    var tempRest = _context.TempRestaurants.ElementAt(i);
-                    var temper = new RestaurantModels()
+                    var tempRest = _context.TempRestaurants.Find(Ids[i]);
+                    try
                     {
-                        UserId = tempRest.UserId,
-                        Phone = tempRest.Phone,
-                        Category = tempRest.Category,
-                        ImageUrl = tempRest.ImageUrl,
-                        RatingUrl = tempRest.RatingUrl,
-                        Review = tempRest.Review,
-                        Link = tempRest.Link,
-                        Name = tempRest.Name
-                    };
-                    _context.RestaurantModels.Add(temper);
-                    _context.SaveChanges();
+                        var temper = new RestaurantModels()
+                        {
+                            UserId = tempRest.UserId,
+                            Phone = tempRest.Phone,
+                            Category = tempRest.Category,
+                            ImageUrl = tempRest.ImageUrl,
+                            RatingUrl = tempRest.RatingUrl,
+                            Review = tempRest.Review,
+                            Link = tempRest.Link,
+                            Name = tempRest.Name
+                        };
+                        _context.RestaurantModels.Add(temper);
+                        _context.SaveChanges();
+                    }
+                    catch { }
                 }
             }
             return RedirectToAction("Index", "Dashboard");
@@ -129,7 +136,8 @@ namespace TravelDash.Controllers
                     AccessTokenSecret = TOKEN_SECRET
                 }
             ).WithEncryption(EncryptionMethod.HMACSHA1).InHeader();
-
+            _context.TempRestaurants.RemoveRange(_context.TempRestaurants);
+            _context.SaveChanges();
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             var stream = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
             return JObject.Parse(stream.ReadToEnd());

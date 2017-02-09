@@ -27,7 +27,7 @@ namespace TravelDash.Models
         public string CheckOut { get; set; }
 
         [Required]
-        [Display(Name = "Maximum Distance From Airport")]
+        [Display(Name = "Maximum Distance From Airport (miles)")]
         public string Distance { get; set; }
 
         [Required]

@@ -37,12 +37,18 @@ namespace TravelDash.Controllers
         [HttpPost]
         public ActionResult FlightsIndex(FlightViewModel model, FormCollection collection)
         {
+            List<int> Ids = new List<int>();
+            foreach (var item in _context.TempPlanes)
+            {
+                Ids.Add(item.ID);
+            }
+
             for (int i = 0; i < 100; i++)
             {
                 var tempBox = "checkBox" + i.ToString();
                 if (!string.IsNullOrEmpty(collection[tempBox]))
                 {
-                    var tempRest = _context.TempPlanes.ElementAt(i);
+                    var tempRest = _context.TempPlanes.Find(Ids[i]);
                     var temper = new PlaneModel()
                     {
                         UserId = tempRest.UserId,
@@ -87,14 +93,11 @@ namespace TravelDash.Controllers
             {
                 var plane = new TempPlanes()
                 {
-
-                    //I DONT KNOW WHERE TO BEGIN PARSING THROUGH THIS RETURN
-
-                    //UserId = currentUser.Email,
-                    //InboundAirline =  ,
-                    //InboundDeparture = ,
-                    //OutboundAirline = ,
-                    //OutboundDeparture = ,
+                    UserId = currentUser.Email,
+                    InboundAirline = responseFromServer["results"][i]["itineraries"][0]["inbound"]["flights"][0]["marketing_airline"].ToString(),
+                    InboundDeparture = responseFromServer["results"][i]["itineraries"][0]["inbound"]["flights"][0]["departs_at"].ToString(),
+                    OutboundAirline = responseFromServer["results"][i]["itineraries"][0]["outbound"]["flights"][0]["marketing_airline"].ToString(),
+                    OutboundDeparture = responseFromServer["results"][i]["itineraries"][0]["outbound"]["flights"][0]["departs_at"].ToString()
                 };
                 _context.TempPlanes.Add(plane);
                 _context.SaveChanges();

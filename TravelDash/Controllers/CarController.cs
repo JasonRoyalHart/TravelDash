@@ -19,7 +19,7 @@ namespace TravelDash.Controllers
             _context = new ApplicationDbContext();
         }
         // GET: Car
-        public ActionResult Index()
+        public ActionResult CarsIndex()
         {
             var currentUserName = User.Identity.Name;
             var currentUser = _context.Users.FirstOrDefault(m => m.UserName == currentUserName);
@@ -36,12 +36,18 @@ namespace TravelDash.Controllers
         [HttpPost]
         public ActionResult CarsIndex(CarsViewModel model, FormCollection collection)
         {
+            List<int> Ids = new List<int>();
+            foreach (var item in _context.TempCars)
+            {
+                Ids.Add(item.ID);
+            }
+
             for (int i = 0; i < 100; i++)
             {
                 var tempBox = "checkBox" + i.ToString();
                 if (!string.IsNullOrEmpty(collection[tempBox]))
                 {
-                    var tempRest = _context.TempCars.ElementAt(i);
+                    var tempRest = _context.TempCars.Find(Ids[i]);
                     var temper = new CarModel()
                     {
                         UserId = tempRest.UserId,
@@ -80,18 +86,21 @@ namespace TravelDash.Controllers
             _context.SaveChanges();
             for (int i = 0; i < responseFromServer["results"].Count(); i++)
             {
-                var car = new TempCars()
+                try
                 {
-                    UserId = currentUser.Email,
-                    Provider = responseFromServer["results"][0]["cars"][i]["provider"]["company_name"].ToString(),
-                    ImageUrl = responseFromServer["results"][0]["cars"][i]["images"]["0"]["url"].ToString(),
-                    Info = responseFromServer["results"][0]["cars"][i]["vehicle_info"]["type"].ToString(),
-                    Price = responseFromServer["results"][0]["cars"][i]["rates"][0]["price"]["amount"].ToString(),
-                };
-                _context.TempCars.Add(car);
-                _context.SaveChanges();
+                    var car = new TempCars()
+                    {
+                        UserId = currentUser.Email,
+                        Provider = responseFromServer["results"][i]["provider"]["company_name"].ToString(),
+                        ImageUrl = responseFromServer["results"][i]["cars"][0]["images"][0]["url"].ToString(),
+                        Info = responseFromServer["results"][i]["cars"][0]["vehicle_info"]["type"].ToString(),
+                        Price = responseFromServer["results"][i]["cars"][0]["estimated_total"]["amount"].ToString()
+                    };
+                    _context.TempCars.Add(car);
+                    _context.SaveChanges();
+                }
+                catch { }
             }
-
             return RedirectToAction("CarsIndex", "Car");
         }
     }

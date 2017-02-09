@@ -2,7 +2,8 @@
     padding-top: 60px;
     padding-bottom: 20px;
     font-family: Arial;   
-    -webkit-border-image: url('water4.png') 30 stretch;
+    background-image: url('water4.png');
+    background-size:contain;
 }
 .jumbotron {
     background-color: rgba(250, 250, 200, 0.5);

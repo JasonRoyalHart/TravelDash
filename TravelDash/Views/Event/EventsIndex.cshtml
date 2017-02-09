@@ -4,16 +4,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>EventsIndex</h2>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid" style="max-width:30%;float:right">
     <div class="container">
-        <div style="width:20%; padding:10px; float:right">
+        <div style="padding:10px; float:right">
             <form id="requestForm">
                 <div class="form-group">
                     <label for="formGroupExampleInput">Type of event</label>
@@ -35,8 +34,6 @@
     <table class="table">
         <thead>
             <tr style="margin-bottom:20px">
-                <th class="tableTitle">Add</th>
-                <th></th>
                 <th class="tableTitle">Event</th>
                 <th class="tableTitle">Date and Time</th>
                 <th class="tableTitle">Venue</th>

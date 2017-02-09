@@ -37,22 +37,28 @@ namespace TravelDash.Controllers
         [HttpPost]
         public ActionResult HotelsIndex(HotelViewModel Model, FormCollection collection)
         {
+            List<int> Ids = new List<int>();
+            foreach (var item in _context.TempHotels)
+            {
+                Ids.Add(item.ID);
+            }
             for (int i = 0; i < 100; i++)
             {
                 var tempBox = "checkBox" + i.ToString();
                 if (!string.IsNullOrEmpty(collection[tempBox]))
                 {
-                    var tempRest = _context.TempHotels.ElementAt(i);
+                    var tempRest = _context.TempHotels.Find(Ids[i]);
                     var temper = new HotelModel()
                     {
                         UserId = tempRest.UserId,
                         property_code = tempRest.property_code,
                         address = tempRest.address,
-                        total_price = tempRest.total_price
+                        total_price = tempRest.total_price,
+                        property_name = tempRest.property_name
                     };
                     _context.HotelModel.Add(temper);
                     _context.SaveChanges();
-
+                    
                 }
             }
             return RedirectToAction("Index", "Dashboard");

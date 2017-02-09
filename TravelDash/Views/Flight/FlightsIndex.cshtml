@@ -49,7 +49,7 @@
     </div>
 }
 <h1 style="text-align:center">Flights Search Results</h1>
-@using (Html.BeginForm("FightsIndex", "Fights", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("FlightsIndex", "Flight", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     <div class="container" style"width:100%">
         <form id="restaurantTable">
@@ -70,7 +70,7 @@
                         <tr>
                             <td><input name="@("checkBox"+(i.ToString()))" value="true" type="checkbox" /></td>
                             <td></td>
-                            <td>@Model.TempPlanes.ElementAt(i).InboundAirline"></td>
+                            <td>@Model.TempPlanes.ElementAt(i).InboundAirline</td>
                             <td>@Model.TempPlanes.ElementAt(i).InboundDeparture</td>
                             <td>@Model.TempPlanes.ElementAt(i).OutboundAirline</td>
                             <td>@Model.TempPlanes.ElementAt(i).OutboundDeparture</td>
