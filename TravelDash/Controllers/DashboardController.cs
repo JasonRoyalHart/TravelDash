@@ -30,8 +30,20 @@ namespace TravelDash.Controllers
             {
                 ViewBag.Status = false;
             }
+            var hotelList = _context.HotelModel.ToList();
+            var restList =_context.RestaurantModels.ToList();
+            var carList = _context.CarModel.ToList();
+            var flightList = _context.PlaneModel.ToList();
 
-            return View(ViewBag);
+            var viewModel = new DashboardViewModel()
+            {
+                RestaurantModels = restList,
+                CarModel = carList,
+                PlaneModel = flightList,
+                HotelModel = hotelList,
+                UserId = currentUser.Email,
+            };
+            return View(viewModel);
         }
     }
     

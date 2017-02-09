@@ -1,4 +1,5 @@
-﻿@{
+﻿@model TravelDash.Models.DashboardViewModel
+@{
     ViewBag.Title = "Dashboard";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -17,7 +18,7 @@
  }
  else
  {
-<p>These options will only show once they have a trip planned yet</p>
+<p>Get Strated Planning for your trip!</p>
 <li>@Html.ActionLink("Book a flight", "FlightsIndex", "Flight")</li>
 <li>@Html.ActionLink("Book a hotel", "HotelsIndex", "Hotel")</li>
 <li>@Html.ActionLink("Book a car", "CarsIndex", "Car")</li>
@@ -36,4 +37,119 @@
 
 <h3>Here's a summary of your trip so far:</h3>
 
-<p>This is where we load the schedule as it exists once they have created a trip</p>
+
+<h2>Booked Flights</h2>
+<table class="table">
+    <thead>
+        <tr style="margin-bottom:20px">
+            <th class="tableTitle">Inbound Airline</th>
+            <th class="tableTitle">Inbound Departure Info</th>
+            <th class="tableTitle">Outbound Airline</th>
+            <th class="tableTitle">Outbound Departure Info</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (var i = 0; i < Model.PlaneModel.Count(); i++)
+        {
+            if (Model.PlaneModel.ElementAt(i).UserId == Model.UserId)
+            {
+            <tr>
+                <td>@Model.PlaneModel.ElementAt(i).InboundAirline"></td>
+                <td>@Model.PlaneModel.ElementAt(i).InboundDeparture</td>
+                <td>@Model.PlaneModel.ElementAt(i).OutboundAirline</td>
+                <td>@Model.PlaneModel.ElementAt(i).OutboundDeparture</td>
+            </tr>
+            }
+         }
+    </tbody>
+
+</table>
+
+<br /><br />
+<h2>Booked Cars</h2>
+<table class="table">
+    <thead>
+        <tr style="margin-bottom:20px">
+            <th class="tableTitle">Provider</th>
+            <th class="tableTitle">Info</th>
+            <th class="tableTitle">Rate (per week)</th>
+        </tr>
+    </thead>
+<tbody>
+    @for (var i = 0; i < Model.CarModel.Count(); i++)
+    {
+        if (Model.CarModel.ElementAt(i).UserId == Model.UserId)
+        {
+
+            <tr>
+
+                <td><img src="@Model.CarModel.ElementAt(i).ImageUrl"></td>
+                <td>@Model.CarModel.ElementAt(i).Provider</td>
+                <td>@Model.CarModel.ElementAt(i).Info</td>
+                <td>@Model.CarModel.ElementAt(i).Price</td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>
+
+<table class="table">
+    <thead>
+        <tr style="margin-bottom:20px">
+            <th class="tableTitle">Add</th>
+            <th></th>
+            <th class="tableTitle">Name</th>
+            <th class="tableTitle">Address</th>
+            <th class="tableTitle">Total Price</th>
+        </tr>
+    </thead>
+<tbody>
+    @for (var i = 0; i < Model.HotelModel.Count(); i++)
+    {
+        if (Model.HotelModel.ElementAt(i).UserId == Model.UserId)
+        {
+            <tr>
+                <td><input name="@("checkBox" + (i.ToString()))" value="true" type="checkbox" /></td>
+                <td></td>
+                <td>@Model.HotelModel.ElementAt(i).property_name</td>
+                <td>@Model.HotelModel.ElementAt(i).address</td>
+                <td>@Model.HotelModel.ElementAt(i).total_price</td>
+            </tr>
+        }
+    }
+</tbody>
+</table>
+
+<br /><br />
+<h2>Chosen Restaurants</h2>
+
+<table class="table">
+    <thead>
+        <tr style="margin-bottom:20px">
+            <th></th>
+            <th class="tableTitle">Rating</th>
+            <th class="tableTitle">Name</th>
+            <th class="tableTitle">Phone</th>
+            <th class="tableTitle">Cuisine</th>
+            <th class="tableTitle">Review</th>
+            <th class="tableTitle">Link</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (var i = 0; i < Model.RestaurantModels.Count(); i++)
+        {
+            if (Model.RestaurantModels.ElementAt(i).UserId == Model.UserId)
+            {
+                <tr>
+                    <td><img src="@Model.RestaurantModels.ElementAt(i).ImageUrl"></td>
+                    <td><img src="@Model.RestaurantModels.ElementAt(i).RatingUrl"></td>
+                    <td>@Model.RestaurantModels.ElementAt(i).Name</td>
+                    <td>@Model.RestaurantModels.ElementAt(i).Phone</td>
+                    <td>@Model.RestaurantModels.ElementAt(i).Category</td>
+                    <td>@Model.RestaurantModels.ElementAt(i).Review</td>
+                    <td><a href="@Model.RestaurantModels.ElementAt(i).Link">MoreInfo/Book</a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
