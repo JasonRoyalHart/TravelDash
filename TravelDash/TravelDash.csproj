@@ -265,6 +265,10 @@
     <Compile Include="Migrations\201702090050013_something.Designer.cs">
       <DependentUpon>201702090050013_something.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702091250397_tempModelChanges.cs" />
+    <Compile Include="Migrations\201702091250397_tempModelChanges.Designer.cs">
+      <DependentUpon>201702091250397_tempModelChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CarModel.cs" />
@@ -414,6 +418,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702090050013_something.resx">
       <DependentUpon>201702090050013_something.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702091250397_tempModelChanges.resx">
+      <DependentUpon>201702091250397_tempModelChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
