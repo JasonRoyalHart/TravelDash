@@ -213,61 +213,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201702062147226_initialCreate.cs" />
-    <Compile Include="Migrations\201702062147226_initialCreate.Designer.cs">
-      <DependentUpon>201702062147226_initialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702072015175_planemodel.cs" />
-    <Compile Include="Migrations\201702072015175_planemodel.Designer.cs">
-      <DependentUpon>201702072015175_planemodel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702072017257_carmodel.cs" />
-    <Compile Include="Migrations\201702072017257_carmodel.Designer.cs">
-      <DependentUpon>201702072017257_carmodel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702072019460_hotelmodel.cs" />
-    <Compile Include="Migrations\201702072019460_hotelmodel.Designer.cs">
-      <DependentUpon>201702072019460_hotelmodel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702081437584_TempRestaurants.cs" />
-    <Compile Include="Migrations\201702081437584_TempRestaurants.Designer.cs">
-      <DependentUpon>201702081437584_TempRestaurants.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702081539470_tempCarsModel.cs" />
-    <Compile Include="Migrations\201702081539470_tempCarsModel.Designer.cs">
-      <DependentUpon>201702081539470_tempCarsModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702081541593_tempPlaneModel.cs" />
-    <Compile Include="Migrations\201702081541593_tempPlaneModel.Designer.cs">
-      <DependentUpon>201702081541593_tempPlaneModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702081544449_tempHotelsModel.cs" />
-    <Compile Include="Migrations\201702081544449_tempHotelsModel.Designer.cs">
-      <DependentUpon>201702081544449_tempHotelsModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702081547063_tempEventsModel.cs" />
-    <Compile Include="Migrations\201702081547063_tempEventsModel.Designer.cs">
-      <DependentUpon>201702081547063_tempEventsModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702081549488_eventModel.cs" />
-    <Compile Include="Migrations\201702081549488_eventModel.Designer.cs">
-      <DependentUpon>201702081549488_eventModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702081854545_updatedTempRestaurants.cs" />
-    <Compile Include="Migrations\201702081854545_updatedTempRestaurants.Designer.cs">
-      <DependentUpon>201702081854545_updatedTempRestaurants.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702081857143_readdedChangesToRestaurants.cs" />
-    <Compile Include="Migrations\201702081857143_readdedChangesToRestaurants.Designer.cs">
-      <DependentUpon>201702081857143_readdedChangesToRestaurants.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702090050013_something.cs" />
-    <Compile Include="Migrations\201702090050013_something.Designer.cs">
-      <DependentUpon>201702090050013_something.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702091250397_tempModelChanges.cs" />
-    <Compile Include="Migrations\201702091250397_tempModelChanges.Designer.cs">
-      <DependentUpon>201702091250397_tempModelChanges.cs</DependentUpon>
+    <Compile Include="Migrations\201702091543063_Initial.cs" />
+    <Compile Include="Migrations\201702091543063_Initial.Designer.cs">
+      <DependentUpon>201702091543063_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -381,47 +329,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702062147226_initialCreate.resx">
-      <DependentUpon>201702062147226_initialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702072015175_planemodel.resx">
-      <DependentUpon>201702072015175_planemodel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702072017257_carmodel.resx">
-      <DependentUpon>201702072017257_carmodel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702072019460_hotelmodel.resx">
-      <DependentUpon>201702072019460_hotelmodel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702081437584_TempRestaurants.resx">
-      <DependentUpon>201702081437584_TempRestaurants.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702081539470_tempCarsModel.resx">
-      <DependentUpon>201702081539470_tempCarsModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702081541593_tempPlaneModel.resx">
-      <DependentUpon>201702081541593_tempPlaneModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702081544449_tempHotelsModel.resx">
-      <DependentUpon>201702081544449_tempHotelsModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702081547063_tempEventsModel.resx">
-      <DependentUpon>201702081547063_tempEventsModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702081549488_eventModel.resx">
-      <DependentUpon>201702081549488_eventModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702081854545_updatedTempRestaurants.resx">
-      <DependentUpon>201702081854545_updatedTempRestaurants.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702081857143_readdedChangesToRestaurants.resx">
-      <DependentUpon>201702081857143_readdedChangesToRestaurants.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702090050013_something.resx">
-      <DependentUpon>201702090050013_something.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702091250397_tempModelChanges.resx">
-      <DependentUpon>201702091250397_tempModelChanges.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702091543063_Initial.resx">
+      <DependentUpon>201702091543063_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

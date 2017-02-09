@@ -9,8 +9,9 @@ namespace TravelDash.Models
     public class HotelModel
     {
         [Key]
+        public int ID { get; set; }
         public string property_code { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public string property_name { get; set; }
         public string address { get; set; }
         public string total_price { get; set; }

@@ -7,7 +7,7 @@ namespace TravelDash.Models
 {
     public class CarModel
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string UserId { get; set; }
         public string Provider { get; set; }
         public string ImageUrl { get; set; }
