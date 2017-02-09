@@ -9,6 +9,7 @@ namespace TravelDash.Models
     public class TempHotels
     {
         [Key]
+        public int ID { get; set; }
         public string property_code { get; set; }
         public string UserId { get; set; }
         public string property_name { get; set; }

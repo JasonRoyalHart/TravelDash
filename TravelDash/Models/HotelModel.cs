@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,6 +8,7 @@ namespace TravelDash.Models
 {
     public class HotelModel
     {
+        [Key]
         public string property_code { get; set; }
         public int UserId { get; set; }
         public string property_name { get; set; }
