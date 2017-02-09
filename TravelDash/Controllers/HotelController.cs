@@ -35,10 +35,27 @@ namespace TravelDash.Controllers
             return View(viewModel);
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult HotelsIndex(HotelViewModel Model)
+        public ActionResult HotelsIndex(HotelViewModel Model, FormCollection collection)
         {
-            return View();
+            for (int i = 0; i < 100; i++)
+            {
+                var tempBox = "checkBox" + i.ToString();
+                if (!string.IsNullOrEmpty(collection[tempBox]))
+                {
+                    var tempRest = _context.TempHotels.ElementAt(i);
+                    var temper = new HotelModel()
+                    {
+                        UserId = tempRest.UserId,
+                        property_code = tempRest.property_code,
+                        address = tempRest.address,
+                        total_price = tempRest.total_price
+                    };
+                    _context.HotelModel.Add(temper);
+                    _context.SaveChanges();
+
+                }
+            }
+            return RedirectToAction("Index", "Dashboard");
         }
         public ActionResult HotelSearchResult(HotelViewModel model)
         {

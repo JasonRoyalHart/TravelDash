@@ -42,10 +42,30 @@ namespace TravelDash.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult RestaurantsIndex(RestaurantsViewModel model)
+        public ActionResult RestaurantsIndex(RestaurantsViewModel Model, FormCollection collection)
         {
-            return View();
+            for (int i = 0; i < 100; i++)
+            {
+                var tempBox = "checkBox" + i.ToString();
+                if (!string.IsNullOrEmpty(collection[tempBox]))
+                {
+                    var tempRest = _context.TempRestaurants.ElementAt(i);
+                    var temper = new RestaurantModels()
+                    {
+                        UserId = tempRest.UserId,
+                        Phone = tempRest.Phone,
+                        Category = tempRest.Category,
+                        ImageUrl = tempRest.ImageUrl,
+                        RatingUrl = tempRest.RatingUrl,
+                        Review = tempRest.Review,
+                        Link = tempRest.Link,
+                        Name = tempRest.Name
+                    };
+                    _context.RestaurantModels.Add(temper);
+                    _context.SaveChanges();
+                }
+            }
+            return RedirectToAction("Index", "Dashboard");
         }
         public void RestaurantSearch()
         {

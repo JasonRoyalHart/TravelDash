@@ -33,12 +33,30 @@ namespace TravelDash.Controllers
             };
             return View(viewModel);
         }
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult CarsIndex()
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        public ActionResult CarsIndex(CarsViewModel model, FormCollection collection)
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                var tempBox = "checkBox" + i.ToString();
+                if (!string.IsNullOrEmpty(collection[tempBox]))
+                {
+                    var tempRest = _context.TempCars.ElementAt(i);
+                    var temper = new CarModel()
+                    {
+                        UserId = tempRest.UserId,
+                        Provider = tempRest.Provider,
+                        ImageUrl = tempRest.ImageUrl,
+                        Info = tempRest.Info,
+                        Price = tempRest.Price
+                    };
+
+                    _context.CarModel.Add(temper);
+                    _context.SaveChanges();
+                }
+            }
+            return RedirectToAction("Index", "Dashboard");
+        }
         public ActionResult CarSearchResult(CarsViewModel model)
         {
             var currentUserName = User.Identity.Name;

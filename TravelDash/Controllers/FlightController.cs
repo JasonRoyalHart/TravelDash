@@ -34,12 +34,29 @@ namespace TravelDash.Controllers
 
             return View(viewModel);
         }
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult FlightsIndex(model)
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        public ActionResult FlightsIndex(FlightViewModel model, FormCollection collection)
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                var tempBox = "checkBox" + i.ToString();
+                if (!string.IsNullOrEmpty(collection[tempBox]))
+                {
+                    var tempRest = _context.TempPlanes.ElementAt(i);
+                    var temper = new PlaneModel()
+                    {
+                        UserId = tempRest.UserId,
+                        InboundAirline = tempRest.InboundAirline,
+                        InboundDeparture = tempRest.InboundDeparture,
+                        OutboundAirline = tempRest.OutboundAirline,
+                        OutboundDeparture = tempRest.OutboundDeparture
+                    };
+                    _context.PlaneModel.Add(temper);
+                    _context.SaveChanges();
+                }
+            }
+            return RedirectToAction("Index", "Dashboard");
+        }
         public ActionResult PlaneSearchResult(FlightViewModel model)
         {
             var currentUserName = User.Identity.Name;
