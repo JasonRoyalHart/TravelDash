@@ -48,8 +48,39 @@
         </div>
     </div>
 }
-
-
-<p> This is where we write the code to desplay temp flights like we did with the hotels</p>
+<h1>Flights Table</h1>
+@using (Html.BeginForm("FightsIndex", "Fights", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="container" style"width:100%">
+        <form id="restaurantTable">
+            <table class="table">
+                <thead>
+                    <tr style="margin-bottom:20px">
+                        <th class="tableTitle">Add</th>
+                        <th></th>
+                        <th class="tableTitle">Inbound Airline</th>
+                        <th class="tableTitle">Inbound Departure Info</th>
+                        <th class="tableTitle">Outbound Airline</th>
+                        <th class="tableTitle">Outbound Departure Info</th>
+                    </tr>
+                </thead>
+                @for (var i = 0; i < Model.TempPlanes.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>@Model.TempPlanes.ElementAt(i).InboundAirline"></td>
+                            <td>@Model.TempPlanes.ElementAt(i).InboundDeparture</td>
+                            <td>@Model.TempPlanes.ElementAt(i).OutboundAirline</td>
+                            <td>@Model.TempPlanes.ElementAt(i).OutboundDeparture</td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <button id="chooseButton" style="display: none" type="button" class="btn">Add choices to dash</button>
+        </form>
+    </div>
+}
 
 <li>@Html.ActionLink("Back to dashboard", "Index", "Dashboard")</li>

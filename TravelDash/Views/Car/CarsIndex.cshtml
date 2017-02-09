@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>CarsIndex</h2>
+<h2>Cars</h2>
 
 <li>@Html.ActionLink("Back to dashboard", "Index", "Dashboard")</li>
 
@@ -39,6 +39,43 @@
     </div>
 }
 
+
+<h1>Cars Table</h1>
+
+
+@using (Html.BeginForm("FightsIndex", "Fights", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="container" style"width:100%">
+        <form id="restaurantTable">
+            <table class="table">
+                <thead>
+                    <tr style="margin-bottom:20px">
+                        <th class="tableTitle">Add</th>
+                        <th></th>
+                        <th class="tableTitle"></th>
+                        <th class="tableTitle">Provider</th>
+                        <th class="tableTitle">Info</th>
+                        <th class="tableTitle">Rate (per week)</th>
+                    </tr>
+                </thead>
+                @for (var i = 0; i < Model.TempCars.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><img src="@Model.TempCars.ElementAt(i).ImageUrl"></td>
+                            <td>@Model.TempCars.ElementAt(i).Provider</td>
+                            <td>@Model.TempCars.ElementAt(i).Info</td>
+                            <td>@Model.TempCars.ElementAt(i).Price</td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <button id="chooseButton" style="display: none" type="button" class="btn">Add choices to dash</button>
+        </form>
+    </div>
+}
 
 
 <p>This where the table loads with the results just like hotels did</p>
